@@ -45,20 +45,37 @@
 }
 
 - (void)configureImageButton{
+    
     UIButton *imageButton1 = [[UIButton alloc] initWithFrame:_imageView1.bounds];
     UIButton *imageButton2 = [[UIButton alloc] initWithFrame:_imageView2.bounds];
     UIButton *imageButton3 = [[UIButton alloc] initWithFrame:_imageView3.bounds];
     UIButton *imageButton4 = [[UIButton alloc] initWithFrame:_imageView4.bounds];
+    
+    [imageButton1 addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    [imageButton2 addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    [imageButton3 addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    [imageButton4 addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    imageButton1.tag = 1;
+    imageButton2.tag = 2;
+    imageButton3.tag = 3;
+    imageButton4.tag = 4;
     
     [self.contentView addSubview:imageButton1];
     [self.contentView addSubview:imageButton2];
     [self.contentView addSubview:imageButton3];
     [self.contentView addSubview:imageButton4];
 }
+
 - (void)refreshWithPhotoArray:(NSArray *)photoArray{
+    self.photoArray = photoArray;
     
 }
 
+
+- (void)clickButton:(UIButton *)button{
+    
+}
 
 
 @end

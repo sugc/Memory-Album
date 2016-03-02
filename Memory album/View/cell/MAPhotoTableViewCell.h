@@ -10,5 +10,7 @@
 
 @interface MAPhotoTableViewCell : UITableViewCell
 
+- (void)refreshWithPhotoArray:(NSArray *)photoArray;
 
 @end
+

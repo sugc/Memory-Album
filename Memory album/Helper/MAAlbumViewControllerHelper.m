@@ -35,7 +35,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"com.sugc.albumcell"];
         cell.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 100);
         cell.imageView.frame =CGRectMake(5, 5, 30, 30);
-        
+            
     }
     ALAsset *asset = [[_manager.photoArray objectAtIndex:indexPath.row] firstObject];
     CGImageRef thum = [asset thumbnail];

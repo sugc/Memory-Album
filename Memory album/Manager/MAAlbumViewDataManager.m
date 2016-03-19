@@ -57,7 +57,7 @@
         }
         
     }
-    
+    if(subArray)
     [_photoArray addObject:subArray];
 }
 

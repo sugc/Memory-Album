@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "UIView+MAUtils.h"
 #import "MAUserBasicInfoView.h"
-#import "MAUserInfoContext.h"
 #import "MAUserProfile.h"
 #import "MAContext.h"
 #import "MAProfileSettingViewController.h"

@@ -7,3 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MAUserInfo.h"
+
+@implementation MAUserInfo
+
+- (void)initFormFile{
+
+
+}
+- (void)writeToFile{
+
+}
+
+@end

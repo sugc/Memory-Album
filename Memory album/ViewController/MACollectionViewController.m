@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UIView+MAUtils.h"
 #import "MACollectionViewController.h"
+#import "MACollectionViewControllerHelper.h"
 #import "MAProfileView.h"
 
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITableView *albumTableView;
 @property (nonatomic, strong) MAProfileView *profileView;
+@property (nonatomic, strong) MACollectionViewControllerHelper *helper;
 
 @end
 
@@ -44,8 +46,8 @@
 - (UITableView *)albumTableView{
     if (!_albumTableView) {
         _albumTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.8 * [UIScreen mainScreen].bounds.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
-        //        _albumTableView.delegate = self.helper;
-        //        _albumTableView.dataSource = self.helper;
+            _albumTableView.delegate = self.helper;
+            _albumTableView.dataSource = self.helper;
         
         _albumTableView.backgroundColor = [UIColor blueColor];
     }
@@ -71,5 +73,12 @@
         _profileView = [[MAProfileView alloc] initWithFrame:CGRectMake(0, 0, 0.8 * [UIScreen mainScreen].bounds.size.width, self.scrollView.height)];
     }
     return _profileView;
+}
+
+- (MACollectionViewControllerHelper *)helper{
+    if (!_helper) {
+        _helper = [[MACollectionViewControllerHelper alloc] init];
+    }
+    return _helper;
 }
 @end

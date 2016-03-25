@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		269E61C71CA569D200FB5420 /* MALoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E61C61CA569D200FB5420 /* MALoginView.m */; };
+		269E61CD1CA5792F00FB5420 /* MARegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E61CC1CA5792F00FB5420 /* MARegisterView.m */; };
 		26F74C841C9D6DB6003C370B /* MACollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F74C831C9D6DB6003C370B /* MACollectionViewCell.m */; };
 		26F74C871C9D7D4A003C370B /* MACollectionViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F74C861C9D7D4A003C370B /* MACollectionViewControllerHelper.m */; };
 		8903AE871C7ACB060053DB40 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8903AE821C7AC9AC0053DB40 /* libGPUImage.a */; };
@@ -131,6 +133,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		269E61C61CA569D200FB5420 /* MALoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MALoginView.m; path = View/MALoginView.m; sourceTree = "<group>"; };
+		269E61CA1CA569E200FB5420 /* MALoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MALoginView.h; sourceTree = "<group>"; };
+		269E61CB1CA5791400FB5420 /* MARegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MARegisterView.h; sourceTree = "<group>"; };
+		269E61CC1CA5792F00FB5420 /* MARegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MARegisterView.m; path = View/MARegisterView.m; sourceTree = "<group>"; };
 		26F74C821C9D6DB6003C370B /* MACollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MACollectionViewCell.h; path = View/cell/MACollectionViewCell.h; sourceTree = "<group>"; };
 		26F74C831C9D6DB6003C370B /* MACollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MACollectionViewCell.m; path = View/cell/MACollectionViewCell.m; sourceTree = "<group>"; };
 		26F74C851C9D7D2C003C370B /* MACollectionViewControllerHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MACollectionViewControllerHelper.h; sourceTree = "<group>"; };
@@ -403,6 +409,10 @@
 				891F29061C7F199700B94446 /* MAProfileView.m */,
 				891F29151C7FF88C00B94446 /* MAUserBasicInfoView.h */,
 				891F29121C7FF84800B94446 /* MAUserBAsicInfoView.m */,
+				269E61CA1CA569E200FB5420 /* MALoginView.h */,
+				269E61C61CA569D200FB5420 /* MALoginView.m */,
+				269E61CB1CA5791400FB5420 /* MARegisterView.h */,
+				269E61CC1CA5792F00FB5420 /* MARegisterView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -922,6 +932,7 @@
 				896024261C86E55800697252 /* UIView+WebCacheOperation.m in Sources */,
 				26F74C871C9D7D4A003C370B /* MACollectionViewControllerHelper.m in Sources */,
 				8960239D1C86DFFC00697252 /* MJRefreshAutoNormalFooter.m in Sources */,
+				269E61CD1CA5792F00FB5420 /* MARegisterView.m in Sources */,
 				896024191C86E55800697252 /* SDImageCache.m in Sources */,
 				896024251C86E55800697252 /* UIImageView+WebCache.m in Sources */,
 				896023A91C86DFFC00697252 /* UIView+MJExtension.m in Sources */,
@@ -934,6 +945,7 @@
 				896023BB1C86E2C800697252 /* AFURLRequestSerialization.m in Sources */,
 				891F292A1C8028AD00B94446 /* MACollectionViewController.m in Sources */,
 				8960239B1C86DFFC00697252 /* MJRefreshHeader.m in Sources */,
+				269E61C71CA569D200FB5420 /* MALoginView.m in Sources */,
 				896024221C86E55800697252 /* UIImage+MultiFormat.m in Sources */,
 				8960239F1C86DFFC00697252 /* MJRefreshBackGifFooter.m in Sources */,
 				8960235F1C86AA9D00697252 /* MAPhotoTableViewCell.m in Sources */,

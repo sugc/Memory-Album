@@ -78,4 +78,6 @@ static ALAssetsGroup *sharedGroup = nil;
     }];
     
 }
+
+
 @end

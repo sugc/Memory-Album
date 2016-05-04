@@ -12,7 +12,7 @@
 #import "MAContext.h"
 
 @interface MADataManager ()
-
+@property (nonatomic, strong) NSMutableArray *localImageArray;
 @end
 
 @implementation MADataManager
@@ -23,22 +23,33 @@
     
     dispatch_once(&dataManagerToken, ^{
         sharedDataManager = [[MADataManager alloc] init];
+        sharedDataManager.localImageArray = [[NSMutableArray alloc] init];
+        [sharedDataManager refresh];
     });
     return sharedDataManager;
 }
 
 - (NSArray *)localImage{
     
-   __block NSMutableArray *array = [[NSMutableArray alloc] init];
-    ALAssetsGroup *group = [[MAContext sharedContext] sharedAssetsGroup];
-    [group enumerateAssetsUsingBlock:^(ALAsset *result,NSUInteger index, BOOL *stop){
-        if (result != nil) {
-            [array addObject:result];            
-        }
-}];
     
-    return array;
+    return _localImageArray;
 }
 
+- (void)refresh{
+   
+    ALAssetsLibrary *lib = [[MAContext sharedContext] sharedAssetsLibrary];
+    [lib enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop){
+        [group enumerateAssetsUsingBlock:^(ALAsset *result,NSUInteger index, BOOL *stop){
+            if (result != nil && [[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto]) {
+                [_localImageArray addObject:result];
+            }
+        }];
+        
+    } failureBlock:^(NSError *erro){
+        
+    }];
+
+
+}
 
 @end

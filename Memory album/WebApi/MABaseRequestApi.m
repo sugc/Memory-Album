@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MABaseRequestApi.h"
 #import <UIKit/UIKit.h>
+#import "AFNetworking.h"
 
 @implementation MARequestParam
 
@@ -29,39 +30,78 @@
 
 - (void)postRequestWithParam:(MARequestParam *)param{
 
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSString *urlStr = [param.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    NSURLSession *session = [NSURLSession sharedSession];
+//    NSString *urlStr = [param.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSURL *url = [NSURL URLWithString:urlStr];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 //    NSData *data = [NSJSONSerialization dataWithJSONObject:param.paramDic options:NSJSONWritingPrettyPrinted error:nil];
-    UIImage *image = [UIImage imageNamed:@"avatar.png"];
-    NSData *data = UIImagePNGRepresentation(image);
-    [request setHTTPMethod:@"POST"];
-
-    //[request setValue:@"image.jpg" forKey:@"fileName"];
-    [request setHTTPBody:data];
+//    UIImage *image = [UIImage imageNamed:@"avatar.png"];
+//    NSData *data = UIImagePNGRepresentation(image);
+//    [request setHTTPMethod:@"POST"];
+//
+//    //[request setValue:@"image.jpg" forKey:@"fileName"];
+//    [request setHTTPBody:data];
+//    
+//    [[session dataTaskWithRequest:request completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *erro){
+//        id respose = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//        NSLog(@"%@",respose);
+//    }] resume];
     
-    [[session dataTaskWithRequest:request completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *erro){
-        id respose = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"%@",respose);
-    }] resume];
+    
+    
+    NSDictionary *par = param.paramDic;
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    UIImage *image = [UIImage imageNamed:@"avatar.png"];
+    NSData *imageData = UIImageJPEGRepresentation(image,1.0);
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager POST:@"http://10.151.195.138:8080/album/rest/photo/post" parameters:par constructingBodyWithBlock:^(id _Nonnull formData){
+        [formData appendPartWithFormData:imageData name:@"image"];
+    } progress:^(NSProgress *_Nonnull uploadProgress) {
+        
+    }success:^(NSURLSessionDataTask *_Nonnull task,id _Nullable responseObject) {
+        NSLog(@"success");
+    }failure:^(NSURLSessionDataTask *_Nonnull task,NSError *_Nonnull error){
+        NSLog(@"failure");
+    }];
+
     
 }
 - (void)getRequestWithParam:(MARequestParam *)param{
 
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSString *urlStr = [param.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    //    NSData *data = [NSJSONSerialization dataWithJSONObject:param.paramDic options:NSJSONWritingPrettyPrinted error:nil];
+//    NSURLSession *session = [NSURLSession sharedSession];
+//    NSString *urlStr = [param.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSURL *url = [NSURL URLWithString:urlStr];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    //    NSData *data = [NSJSONSerialization dataWithJSONObject:param.paramDic options:NSJSONWritingPrettyPrinted error:nil];
+//    
+//    [request setHTTPMethod:@"GET"];
+//    [request setHTTPBody:nil];
+//    
+//    [[session dataTaskWithRequest:request completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *erro){
+//        id respose = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//        NSLog(@"%@",respose);
+//    }] resume];
     
-    [request setHTTPMethod:@"GET"];
-    [request setHTTPBody:nil];
+    NSDictionary *par = param.paramDic;
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    [[session dataTaskWithRequest:request completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *erro){
-        id respose = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"%@",respose);
-    }] resume];
+    UIImage *image = [UIImage imageNamed:@"avatar.png"];
+    NSData *imageData = UIImageJPEGRepresentation(image,1.0);
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager POST:@"http://10.151.195.138:8080/album/rest/photo/post" parameters:par constructingBodyWithBlock:^(id _Nonnull formData){
+        [formData appendPartWithFormData:imageData name:@"image"];
+    } progress:^(NSProgress *_Nonnull uploadProgress) {
+        
+    }success:^(NSURLSessionDataTask *_Nonnull task,id _Nullable responseObject) {
+        NSLog(@"success");
+    }failure:^(NSURLSessionDataTask *_Nonnull task,NSError *_Nonnull error){
+        NSLog(@"failure");
+    }];
+    
+
 
 }
 

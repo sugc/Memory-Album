@@ -11,7 +11,7 @@
 #import "UIView+MAUtils.h"
 #import "MAAlbumViewControllerHelper.h"
 #import "MAAlbumViewDataManager.h"
-
+#import "MAPhotoTableViewCell.h"
 
 @interface MAAlbumViewControllerHelper ()
 
@@ -32,10 +32,8 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"com.sugc.albumCell"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"com.sugc.albumcell"];
-        cell.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 100);
-        cell.imageView.frame =CGRectMake(5, 5, 30, 30);
-            
+        cell = [[MAPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"com.sugc.albumcell"];
+        
     }
     ALAsset *asset = [[_manager.photoArray objectAtIndex:indexPath.row] firstObject];
     CGImageRef thum = [asset thumbnail];

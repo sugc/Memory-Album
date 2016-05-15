@@ -11,7 +11,7 @@
 
 @class ALAssetsLibrary;
 @class ALAssetsGroup;
-
+@class MAUserProfile;
 @interface MAContext : NSObject
 
 + (instancetype)sharedContext;
@@ -19,4 +19,7 @@
 - (ALAssetsLibrary *)sharedAssetsLibrary;
 - (ALAssetsGroup *)sharedAssetsGroup;
 - (void)initConfiguration;
+- (MAUserProfile *)localUserProfile;
+- (UITabBarController *)tabBarController;
+- (void)refreshLocalUserWithUserProfile:(MAUserProfile *)userProfile;
 @end

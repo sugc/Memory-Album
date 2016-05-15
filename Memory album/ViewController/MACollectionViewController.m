@@ -10,15 +10,19 @@
 #import "UIView+MAUtils.h"
 #import "MACollectionViewController.h"
 #import "MACollectionViewControllerHelper.h"
+#import "MAUserProfile.h"
 #import "MAProfileView.h"
+#import "MJRefresh.h"
+#import "MAUserRequestApi.h"
+#import "MAContext.h"
 
-
-@interface MACollectionViewController ()<UIScrollViewDelegate>
+@interface MACollectionViewController ()<UIScrollViewDelegate,userApiProtocol>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITableView *albumTableView;
-@property (nonatomic, strong) MAProfileView *profileView;
+
 @property (nonatomic, strong) MACollectionViewControllerHelper *helper;
+@property (nonatomic, strong) UIImageView *titleView;
 
 @end
 
@@ -27,11 +31,14 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.scrollView];
+    [self.scrollView addSubview:self.titleView];
     [self.scrollView addSubview:self.albumTableView];
     [self.scrollView addSubview:self.profileView];
-       self.tabBarItem.title = @"收藏";
+    self.tabBarItem.title = @"好友";
+    self.tabBarItem.image = [UIImage imageNamed:@"friendIcon@3x.png"];
+    
 }
 
 - (void)didReceiveMemoryWarning{
@@ -40,16 +47,40 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    self.scrollView.contentOffset = CGPointMake(0.8 *[UIScreen mainScreen].bounds.size.width, 0);
+    
 }
+
+- (UIImageView *)titleView{
+    if (!_titleView) {
+        _titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0.8 * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, 70)];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, _titleView.width, _titleView.height - 30)];
+        titleLabel.text = @"相册";
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleView.backgroundColor = [UIColor blueColor];
+        UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 14 - 20, 35, 30, 30)];
+        [addButton setTitle:@"➕" forState:UIControlStateNormal];
+        [_titleView addSubview:titleLabel];
+        [_titleView addSubview:addButton];
+        
+        [addButton addTarget:self action:@selector(addAlbum) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _titleView;
+}
+
 
 - (UITableView *)albumTableView{
     if (!_albumTableView) {
-        _albumTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.8 * [UIScreen mainScreen].bounds.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+        _albumTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.8 * [UIScreen mainScreen].bounds.size.width, self.titleView.bottom, self.scrollView.frame.size.width, self.scrollView.frame.size.height - self.titleView.height)];
             _albumTableView.delegate = self.helper;
             _albumTableView.dataSource = self.helper;
-        
-        _albumTableView.backgroundColor = [UIColor blueColor];
+
+        _albumTableView.backgroundColor = [UIColor grayColor];
+        _albumTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(void){
+            MAUserRequestApi *userApi = [[MAUserRequestApi alloc] init];
+            userApi.delegate = self;
+            [userApi getFriendsWithUserName:[[MAContext sharedContext] localUserProfile].userName ];
+        }];
+       
     }
     return _albumTableView;
 }
@@ -57,13 +88,13 @@
 
 - (UIScrollView *)scrollView{
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64 - 49)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height  - 49)];
         _scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width *1.8, 0);
         _scrollView.pagingEnabled = YES;
-        _scrollView.contentOffset = CGPointMake(0.8 *[UIScreen mainScreen].bounds.size.width, 0);
+       _scrollView.contentOffset = CGPointMake(0.8 *[UIScreen mainScreen].bounds.size.width, 0);
         _scrollView.bounces = NO;
         _scrollView.delegate = self;
-        _scrollView.backgroundColor = [UIColor grayColor];
+        
     }
     return _scrollView;
 }
@@ -80,5 +111,22 @@
         _helper = [[MACollectionViewControllerHelper alloc] init];
     }
     return _helper;
+}
+
+//*********************************delegate
+
+- (void)okSelector:(id)responseObject{
+    NSDictionary *dic = responseObject;
+    NSArray *array = [[dic objectForKey:@"returnObject"] objectForKey:@"friendsList"];
+    [self.helper setData:array];
+    [self.albumTableView reloadData];
+    [self.albumTableView.header endRefreshing ];
+}
+
+- (void)erroSelector:(id)responseObject{
+     [self.albumTableView.header endRefreshing ];
+}
+- (void)failSelector:(NSError *)erro{
+     [self.albumTableView.header endRefreshing ];
 }
 @end

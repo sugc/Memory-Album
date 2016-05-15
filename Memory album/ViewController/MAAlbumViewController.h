@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MAProfileView;
 @interface MAAlbumViewController : UIViewController
-
+@property (nonatomic, strong) MAProfileView *profileView;
 
 @end

@@ -11,5 +11,6 @@
 
 @interface MACollectionViewControllerHelper : NSObject <UITableViewDelegate,UITableViewDataSource>
 
+- (void)setData:(NSArray *)dataArray;
 
 @end

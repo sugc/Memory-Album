@@ -14,6 +14,7 @@
 #import "MACollectionViewController.h"
 #import "MAAlbumViewController.h"
 #import "MATabBarController.h"
+#import "LoginViewController.h"
 
 #define ratio [UIScreen mainScreen].bounds.size.width / 375.0
 
@@ -150,18 +151,26 @@
     MAAlbumViewController *albumVC = [[MAAlbumViewController alloc] init];
     MACollectionViewController *collectionVC = [[MACollectionViewController alloc] init];
     
-    BrowseVC.view.backgroundColor = [UIColor clearColor];
-    collectionVC.view.backgroundColor = [UIColor clearColor];
-    albumVC.view.backgroundColor = [UIColor clearColor];
+    BrowseVC.view.backgroundColor = [UIColor whiteColor];
+    collectionVC.view.backgroundColor = [UIColor whiteColor];
+    albumVC.view.backgroundColor = [UIColor whiteColor];
     
-    UITabBarController *tabBarCon = [[UITabBarController alloc] init];
+    UITabBarController *tabBarCon = [[MAContext sharedContext] tabBarController];
     tabBarCon.automaticallyAdjustsScrollViewInsets = NO;
     [tabBarCon addChildViewController:collectionVC];
     [tabBarCon addChildViewController:albumVC];
     [tabBarCon addChildViewController:BrowseVC];
+
+    [self presentViewController:tabBarCon animated:NO completion:^(void){}];
     
-    [[[MAContext sharedContext] rootViewController] pushViewController:tabBarCon animated:YES];
-    [[[MAContext sharedContext] rootViewController] setNavigationBarHidden:NO];
+//    [[[MAContext sharedContext] rootViewController] pushViewController:tabBarCon animated:YES];
+//    [[[MAContext sharedContext] rootViewController] setNavigationBarHidden:NO];
+    
+//    LoginViewController *loginVC = [[LoginViewController alloc] init];
+//    [self presentViewController:loginVC animated:NO completion:^(void){
+//    
+//    
+//    }];
 }
 
 - (void)swipe:(UISwipeGestureRecognizer *)recognizer{

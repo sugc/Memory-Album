@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MAUserProfile;
 @interface MAUserBasicInfoView : UIView
-
+- (void)refreshWithUserProfile:(MAUserProfile *)userProfile;
 @end

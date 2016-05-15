@@ -14,7 +14,24 @@
 		2603B2D41CC86798006CAF83 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2603B2CD1CC86798006CAF83 /* AFURLResponseSerialization.m */; };
 		2603B2D51CC86798006CAF83 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2603B2CF1CC86798006CAF83 /* AFURLSessionManager.m */; };
 		263E2DFC1CB7E38500A354E2 /* MAPhotoPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263E2DFB1CB7E38500A354E2 /* MAPhotoPickViewController.m */; };
-		269E61C71CA569D200FB5420 /* MALoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E61C61CA569D200FB5420 /* MALoginView.m */; };
+		263FBC001CDB6ED900E76E33 /* MAPhotoRequestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FBBFF1CDB6ED900E76E33 /* MAPhotoRequestApi.m */; };
+		26411D931CE3261700A183EB /* MAUserRequestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 26411D921CE3261700A183EB /* MAUserRequestApi.m */; };
+		2642AAAF1CE5B75700871BB9 /* MAAlbumRequestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2642AAAE1CE5B75700871BB9 /* MAAlbumRequestApi.m */; };
+		2642AAB41CE5B7CE00871BB9 /* loginBackGround.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2642AAB11CE5B7CE00871BB9 /* loginBackGround.jpeg */; };
+		2642AAB51CE5B7CE00871BB9 /* loginBackGround.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2642AAB21CE5B7CE00871BB9 /* loginBackGround.jpg */; };
+		2642AAB61CE5B7CE00871BB9 /* regsiterBackGround.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2642AAB31CE5B7CE00871BB9 /* regsiterBackGround.jpg */; };
+		2644D1461CE7F76A00DF65CA /* findIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2644D1451CE7F76A00DF65CA /* findIcon@2x.png */; };
+		2644D14D1CE804DB00DF65CA /* friendIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2644D1491CE804DB00DF65CA /* friendIcon@3x.png */; };
+		2644D14F1CE804DB00DF65CA /* albumIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2644D14B1CE804DB00DF65CA /* albumIcon@3x.png */; };
+		2644D1501CE804DB00DF65CA /* captureIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2644D14C1CE804DB00DF65CA /* captureIcon@3x.png */; };
+		2644D1521CE805E600DF65CA /* findIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2644D1511CE805E600DF65CA /* findIcon@3x.png */; };
+		2644D1541CE8170E00DF65CA /* ProfileViewBackGround.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2644D1531CE8170E00DF65CA /* ProfileViewBackGround.jpg */; };
+		2644D1571CE81F6E00DF65CA /* female.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2644D1551CE81F6E00DF65CA /* female.jpg */; };
+		2644D1581CE81F6E00DF65CA /* male.png in Resources */ = {isa = PBXBuildFile; fileRef = 2644D1561CE81F6E00DF65CA /* male.png */; };
+		2644D1601CE8B61E00DF65CA /* edit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2644D15D1CE8B61E00DF65CA /* edit.jpg */; };
+		2644D1611CE8B61E00DF65CA /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 2644D15E1CE8B61E00DF65CA /* more.png */; };
+		2644D1621CE8B61E00DF65CA /* logout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2644D15F1CE8B61E00DF65CA /* logout.jpg */; };
+		2644D1641CE8CB9800DF65CA /* MAProfileSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2644D1631CE8CB9800DF65CA /* MAProfileSettingViewCell.m */; };
 		269E61CD1CA5792F00FB5420 /* MARegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E61CC1CA5792F00FB5420 /* MARegisterViewController.m */; };
 		26F74C841C9D6DB6003C370B /* MACollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F74C831C9D6DB6003C370B /* MACollectionViewCell.m */; };
 		26F74C871C9D7D4A003C370B /* MACollectionViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F74C861C9D7D4A003C370B /* MACollectionViewControllerHelper.m */; };
@@ -33,8 +50,7 @@
 		891F29021C7EF9FD00B94446 /* MATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F29011C7EF9FD00B94446 /* MATabBarController.m */; };
 		891F29071C7F199700B94446 /* MAProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F29061C7F199700B94446 /* MAProfileView.m */; };
 		891F290B1C7FF0D900B94446 /* MAUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F290A1C7FF0D900B94446 /* MAUserProfile.m */; };
-		891F29101C7FF74B00B94446 /* MAUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F290F1C7FF74B00B94446 /* MAUserInfo.m */; };
-		891F29131C7FF84800B94446 /* MAUserBAsicInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F29121C7FF84800B94446 /* MAUserBAsicInfoView.m */; };
+		891F29131C7FF84800B94446 /* MAUserBasicInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F29121C7FF84800B94446 /* MAUserBasicInfoView.m */; };
 		891F291A1C80019A00B94446 /* UIView+MAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F29191C80019A00B94446 /* UIView+MAUtils.m */; };
 		891F29201C8007CA00B94446 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 891F291F1C8007CA00B94446 /* avatar.png */; };
 		891F29241C800B2A00B94446 /* QRCode.png in Resources */ = {isa = PBXBuildFile; fileRef = 891F29231C800B2A00B94446 /* QRCode.png */; };
@@ -149,8 +165,28 @@
 		2603B2CF1CC86798006CAF83 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		263E2DFB1CB7E38500A354E2 /* MAPhotoPickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAPhotoPickViewController.m; path = ViewController/MAPhotoPickViewController.m; sourceTree = "<group>"; };
 		263E2DFD1CB7E3AA00A354E2 /* MAPhotoPickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAPhotoPickViewController.h; sourceTree = "<group>"; };
-		269E61C61CA569D200FB5420 /* MALoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MALoginView.m; path = View/MALoginView.m; sourceTree = "<group>"; };
-		269E61CA1CA569E200FB5420 /* MALoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MALoginView.h; sourceTree = "<group>"; };
+		263FBBFC1CDB6E9400E76E33 /* MAPhotoRequestApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAPhotoRequestApi.h; sourceTree = "<group>"; };
+		263FBBFF1CDB6ED900E76E33 /* MAPhotoRequestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAPhotoRequestApi.m; path = WebApi/MAPhotoRequestApi.m; sourceTree = "<group>"; };
+		26411D921CE3261700A183EB /* MAUserRequestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAUserRequestApi.m; path = WebApi/MAUserRequestApi.m; sourceTree = "<group>"; };
+		26411D961CE3263600A183EB /* MAUserRequestApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MAUserRequestApi.h; path = WebApi/MAUserRequestApi.h; sourceTree = "<group>"; };
+		2642AAAE1CE5B75700871BB9 /* MAAlbumRequestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAAlbumRequestApi.m; path = WebApi/MAAlbumRequestApi.m; sourceTree = "<group>"; };
+		2642AAB01CE5B7B300871BB9 /* MAAlbumRequestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAAlbumRequestApi.h; path = WebApi/MAAlbumRequestApi.h; sourceTree = "<group>"; };
+		2642AAB11CE5B7CE00871BB9 /* loginBackGround.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = loginBackGround.jpeg; path = Resources/loginBackGround.jpeg; sourceTree = "<group>"; };
+		2642AAB21CE5B7CE00871BB9 /* loginBackGround.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = loginBackGround.jpg; path = Resources/loginBackGround.jpg; sourceTree = "<group>"; };
+		2642AAB31CE5B7CE00871BB9 /* regsiterBackGround.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = regsiterBackGround.jpg; path = Resources/regsiterBackGround.jpg; sourceTree = "<group>"; };
+		2644D1451CE7F76A00DF65CA /* findIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "findIcon@2x.png"; sourceTree = "<group>"; };
+		2644D1491CE804DB00DF65CA /* friendIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friendIcon@3x.png"; sourceTree = "<group>"; };
+		2644D14B1CE804DB00DF65CA /* albumIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "albumIcon@3x.png"; sourceTree = "<group>"; };
+		2644D14C1CE804DB00DF65CA /* captureIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "captureIcon@3x.png"; sourceTree = "<group>"; };
+		2644D1511CE805E600DF65CA /* findIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "findIcon@3x.png"; sourceTree = "<group>"; };
+		2644D1531CE8170E00DF65CA /* ProfileViewBackGround.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ProfileViewBackGround.jpg; sourceTree = "<group>"; };
+		2644D1551CE81F6E00DF65CA /* female.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = female.jpg; sourceTree = "<group>"; };
+		2644D1561CE81F6E00DF65CA /* male.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male.png; sourceTree = "<group>"; };
+		2644D15D1CE8B61E00DF65CA /* edit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = edit.jpg; sourceTree = "<group>"; };
+		2644D15E1CE8B61E00DF65CA /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
+		2644D15F1CE8B61E00DF65CA /* logout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logout.jpg; sourceTree = "<group>"; };
+		2644D1631CE8CB9800DF65CA /* MAProfileSettingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAProfileSettingViewCell.m; path = View/cell/MAProfileSettingViewCell.m; sourceTree = "<group>"; };
+		2644D1651CE8CBAE00DF65CA /* MAProfileSettingViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MAProfileSettingViewCell.h; path = View/cell/MAProfileSettingViewCell.h; sourceTree = "<group>"; };
 		269E61CB1CA5791400FB5420 /* MARegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MARegisterViewController.h; sourceTree = "<group>"; };
 		269E61CC1CA5792F00FB5420 /* MARegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MARegisterViewController.m; path = View/MARegisterViewController.m; sourceTree = "<group>"; };
 		26F74C821C9D6DB6003C370B /* MACollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MACollectionViewCell.h; path = View/cell/MACollectionViewCell.h; sourceTree = "<group>"; };
@@ -180,9 +216,7 @@
 		891F29081C7F19BF00B94446 /* MAProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAProfileView.h; path = View/MAProfileView.h; sourceTree = "<group>"; };
 		891F290A1C7FF0D900B94446 /* MAUserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAUserProfile.m; path = Entity/MAUserProfile.m; sourceTree = "<group>"; };
 		891F290D1C7FF15600B94446 /* MAUserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAUserProfile.h; path = Entity/MAUserProfile.h; sourceTree = "<group>"; };
-		891F290F1C7FF74B00B94446 /* MAUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAUserInfo.m; path = Context/MAUserInfo.m; sourceTree = "<group>"; };
-		891F29111C7FF78500B94446 /* MAUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAUserInfo.h; path = Context/MAUserInfo.h; sourceTree = "<group>"; };
-		891F29121C7FF84800B94446 /* MAUserBAsicInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAUserBAsicInfoView.m; path = View/MAUserBAsicInfoView.m; sourceTree = "<group>"; };
+		891F29121C7FF84800B94446 /* MAUserBasicInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAUserBasicInfoView.m; path = View/MAUserBasicInfoView.m; sourceTree = "<group>"; };
 		891F29151C7FF88C00B94446 /* MAUserBasicInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAUserBasicInfoView.h; path = View/MAUserBasicInfoView.h; sourceTree = "<group>"; };
 		891F29191C80019A00B94446 /* UIView+MAUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+MAUtils.m"; path = "Category/UIView+MAUtils.m"; sourceTree = "<group>"; };
 		891F291B1C8001BE00B94446 /* UIView+MAUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+MAUtils.h"; path = "Category/UIView+MAUtils.h"; sourceTree = "<group>"; };
@@ -393,8 +427,6 @@
 			children = (
 				890924181C7C606D00EF602B /* MAContext.h */,
 				890924171C7C606D00EF602B /* MAContext.m */,
-				891F29111C7FF78500B94446 /* MAUserInfo.h */,
-				891F290F1C7FF74B00B94446 /* MAUserInfo.m */,
 			);
 			name = Context;
 			sourceTree = "<group>";
@@ -435,9 +467,7 @@
 				891F29081C7F19BF00B94446 /* MAProfileView.h */,
 				891F29061C7F199700B94446 /* MAProfileView.m */,
 				891F29151C7FF88C00B94446 /* MAUserBasicInfoView.h */,
-				891F29121C7FF84800B94446 /* MAUserBAsicInfoView.m */,
-				269E61CA1CA569E200FB5420 /* MALoginView.h */,
-				269E61C61CA569D200FB5420 /* MALoginView.m */,
+				891F29121C7FF84800B94446 /* MAUserBasicInfoView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -482,6 +512,20 @@
 		891F291C1C80074A00B94446 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2644D15D1CE8B61E00DF65CA /* edit.jpg */,
+				2644D15E1CE8B61E00DF65CA /* more.png */,
+				2644D15F1CE8B61E00DF65CA /* logout.jpg */,
+				2644D1551CE81F6E00DF65CA /* female.jpg */,
+				2644D1561CE81F6E00DF65CA /* male.png */,
+				2644D1531CE8170E00DF65CA /* ProfileViewBackGround.jpg */,
+				2644D1511CE805E600DF65CA /* findIcon@3x.png */,
+				2644D1491CE804DB00DF65CA /* friendIcon@3x.png */,
+				2644D14B1CE804DB00DF65CA /* albumIcon@3x.png */,
+				2644D14C1CE804DB00DF65CA /* captureIcon@3x.png */,
+				2644D1451CE7F76A00DF65CA /* findIcon@2x.png */,
+				2642AAB11CE5B7CE00871BB9 /* loginBackGround.jpeg */,
+				2642AAB21CE5B7CE00871BB9 /* loginBackGround.jpg */,
+				2642AAB31CE5B7CE00871BB9 /* regsiterBackGround.jpg */,
 				896023621C86AB0000697252 /* camera1.jpg */,
 				896023631C86AB0000697252 /* camera.jpg */,
 				896023641C86AB0000697252 /* backGroud.jpg */,
@@ -499,6 +543,8 @@
 				26F74C831C9D6DB6003C370B /* MACollectionViewCell.m */,
 				8960235E1C86AA9D00697252 /* MAPhotoTableViewCell.h */,
 				8960235D1C86AA9D00697252 /* MAPhotoTableViewCell.m */,
+				2644D1651CE8CBAE00DF65CA /* MAProfileSettingViewCell.h */,
+				2644D1631CE8CB9800DF65CA /* MAProfileSettingViewCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -652,6 +698,12 @@
 			children = (
 				89CAA7DC1C7DACF900DB12D8 /* MABaseRequestApi.h */,
 				89CAA7DD1C7DACF900DB12D8 /* MABaseRequestApi.m */,
+				263FBBFC1CDB6E9400E76E33 /* MAPhotoRequestApi.h */,
+				263FBBFF1CDB6ED900E76E33 /* MAPhotoRequestApi.m */,
+				26411D961CE3263600A183EB /* MAUserRequestApi.h */,
+				26411D921CE3261700A183EB /* MAUserRequestApi.m */,
+				2642AAB01CE5B7B300871BB9 /* MAAlbumRequestApi.h */,
+				2642AAAE1CE5B75700871BB9 /* MAAlbumRequestApi.m */,
 			);
 			name = WebApi;
 			sourceTree = "<group>";
@@ -858,11 +910,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				891F29201C8007CA00B94446 /* avatar.png in Resources */,
+				2644D1501CE804DB00DF65CA /* captureIcon@3x.png in Resources */,
 				896023671C86AB0000697252 /* backGroud.jpg in Resources */,
+				2644D1521CE805E600DF65CA /* findIcon@3x.png in Resources */,
 				891F29241C800B2A00B94446 /* QRCode.png in Resources */,
+				2642AAB51CE5B7CE00871BB9 /* loginBackGround.jpg in Resources */,
 				896023661C86AB0000697252 /* camera.jpg in Resources */,
+				2644D1571CE81F6E00DF65CA /* female.jpg in Resources */,
+				2644D1541CE8170E00DF65CA /* ProfileViewBackGround.jpg in Resources */,
+				2644D14D1CE804DB00DF65CA /* friendIcon@3x.png in Resources */,
 				89FE2DB81C7AB6AB00BA4EC0 /* LaunchScreen.storyboard in Resources */,
+				2644D1581CE81F6E00DF65CA /* male.png in Resources */,
+				2644D1611CE8B61E00DF65CA /* more.png in Resources */,
+				2644D14F1CE804DB00DF65CA /* albumIcon@3x.png in Resources */,
 				89FE2DB51C7AB6AB00BA4EC0 /* Assets.xcassets in Resources */,
+				2644D1601CE8B61E00DF65CA /* edit.jpg in Resources */,
+				2642AAB41CE5B7CE00871BB9 /* loginBackGround.jpeg in Resources */,
+				2642AAB61CE5B7CE00871BB9 /* regsiterBackGround.jpg in Resources */,
+				2644D1461CE7F76A00DF65CA /* findIcon@2x.png in Resources */,
+				2644D1621CE8B61E00DF65CA /* logout.jpg in Resources */,
 				891F29341C80627500B94446 /* alpha.jpg in Resources */,
 				89FE2DB31C7AB6AB00BA4EC0 /* Main.storyboard in Resources */,
 				896023A51C86DFFC00697252 /* MJRefresh.bundle in Resources */,
@@ -898,6 +964,7 @@
 				89FE2DB01C7AB6AB00BA4EC0 /* ViewController.m in Sources */,
 				896023991C86DFFC00697252 /* MJRefreshComponent.m in Sources */,
 				8960239A1C86DFFC00697252 /* MJRefreshFooter.m in Sources */,
+				2644D1641CE8CB9800DF65CA /* MAProfileSettingViewCell.m in Sources */,
 				891F29021C7EF9FD00B94446 /* MATabBarController.m in Sources */,
 				89CAA7DE1C7DACF900DB12D8 /* MABaseRequestApi.m in Sources */,
 				2603B2D51CC86798006CAF83 /* AFURLSessionManager.m in Sources */,
@@ -920,16 +987,16 @@
 				2603B2D21CC86798006CAF83 /* AFSecurityPolicy.m in Sources */,
 				890924191C7C606D00EF602B /* MAContext.m in Sources */,
 				896023381C85448200697252 /* MAAlbumViewControllerHelper.m in Sources */,
-				891F29101C7FF74B00B94446 /* MAUserInfo.m in Sources */,
 				8960241B1C86E55800697252 /* SDWebImageDecoder.m in Sources */,
 				89FE2DAD1C7AB6AB00BA4EC0 /* AppDelegate.m in Sources */,
 				896023421C8554EC00697252 /* MAAlbumViewDataManager.m in Sources */,
 				89FE2DAA1C7AB6AB00BA4EC0 /* main.m in Sources */,
 				891F290B1C7FF0D900B94446 /* MAUserProfile.m in Sources */,
 				891F28FF1C7EEDD100B94446 /* MABrowseViewHelper.m in Sources */,
+				2642AAAF1CE5B75700871BB9 /* MAAlbumRequestApi.m in Sources */,
 				896024241C86E55800697252 /* UIImageView+HighlightedWebCache.m in Sources */,
 				891F28F91C7EE8BF00B94446 /* MAAlbumEntranceTableViewCell.m in Sources */,
-				891F29131C7FF84800B94446 /* MAUserBAsicInfoView.m in Sources */,
+				891F29131C7FF84800B94446 /* MAUserBasicInfoView.m in Sources */,
 				896023A31C86DFFC00697252 /* MJRefreshNormalHeader.m in Sources */,
 				2603B2D41CC86798006CAF83 /* AFURLResponseSerialization.m in Sources */,
 				26F74C841C9D6DB6003C370B /* MACollectionViewCell.m in Sources */,
@@ -949,7 +1016,6 @@
 				896023A11C86DFFC00697252 /* MJRefreshBackStateFooter.m in Sources */,
 				891F292A1C8028AD00B94446 /* MACollectionViewController.m in Sources */,
 				8960239B1C86DFFC00697252 /* MJRefreshHeader.m in Sources */,
-				269E61C71CA569D200FB5420 /* MALoginView.m in Sources */,
 				896024221C86E55800697252 /* UIImage+MultiFormat.m in Sources */,
 				8960239F1C86DFFC00697252 /* MJRefreshBackGifFooter.m in Sources */,
 				8960235F1C86AA9D00697252 /* MAPhotoTableViewCell.m in Sources */,
@@ -957,12 +1023,14 @@
 				8960241E1C86E55800697252 /* SDWebImageManager.m in Sources */,
 				8960241C1C86E55800697252 /* SDWebImageDownloader.m in Sources */,
 				891F29071C7F199700B94446 /* MAProfileView.m in Sources */,
+				263FBC001CDB6ED900E76E33 /* MAPhotoRequestApi.m in Sources */,
 				2603B2D11CC86798006CAF83 /* AFNetworkReachabilityManager.m in Sources */,
 				8960241D1C86E55800697252 /* SDWebImageDownloaderOperation.m in Sources */,
 				263E2DFC1CB7E38500A354E2 /* MAPhotoPickViewController.m in Sources */,
 				896024171C86E55800697252 /* MKAnnotationView+WebCache.m in Sources */,
 				8960233F1C854E1800697252 /* MADataManager.m in Sources */,
 				896023981C86DFFC00697252 /* MJRefreshBackFooter.m in Sources */,
+				26411D931CE3261700A183EB /* MAUserRequestApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

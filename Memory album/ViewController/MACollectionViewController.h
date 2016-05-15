@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MAProfileView;
 @interface MACollectionViewController : UIViewController
-
+@property (nonatomic, strong) MAProfileView *profileView;
 
 @end
 

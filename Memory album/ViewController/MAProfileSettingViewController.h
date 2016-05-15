@@ -10,4 +10,6 @@
 
 @interface MAProfileSettingViewController : UIViewController
 
+- (void)refreshWithUserProfile:(MAUserProfile *)userProfile;
+
 @end

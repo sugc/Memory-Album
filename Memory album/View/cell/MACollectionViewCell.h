@@ -6,10 +6,13 @@
 //  Copyright © 2016年 sugc. All rights reserved.
 //
 
-#import<UIKit/UIKit.h>
-@class MAAlbum;
+
+
+
+#import "MAUserProfile.h"
+#import <UIKit/UIKit.h>
 @interface MACollectionViewCell : UITableViewCell
 
-- (void)refreshWithAlbum:(MAAlbum *) album;
+- (void)refreshWithUserProfile:(MAUserProfile *) userProfile;
 + (CGFloat)cellHeight;
 @end

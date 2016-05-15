@@ -18,7 +18,7 @@
 
 @implementation MABaseRequestApi
 
-- (instancetype)sharedApi{
++ (instancetype)sharedApi{
     static dispatch_once_t onceTokenApi;
     static MABaseRequestApi *sharedApi = nil;
     
@@ -28,10 +28,10 @@
     return sharedApi;
 }
 
-- (void)postRequestWithParam:(MARequestParam *)param{
+- (void)postRequestWithParam:(MARequestParam *)param target:(id) target okSelector:(SEL) okSelector failSelector:(SEL) failSelector erroSelector:(SEL) erroSelector{
 
 //    NSURLSession *session = [NSURLSession sharedSession];
-//    NSString *urlStr = [param.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSString *urlStr = [param.url stringByAddingPercentEscapesUingEncoding:NSUTF8StringEncoding];
 //    NSURL *url = [NSURL URLWithString:urlStr];
 //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 //    NSData *data = [NSJSONSerialization dataWithJSONObject:param.paramDic options:NSJSONWritingPrettyPrinted error:nil];
@@ -49,26 +49,43 @@
     
     
     
-    NSDictionary *par = param.paramDic;
+  
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    UIImage *image = [UIImage imageNamed:@"avatar.png"];
-    NSData *imageData = UIImageJPEGRepresentation(image,1.0);
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    [manager POST:@"http://10.151.195.138:8080/album/rest/photo/post" parameters:par constructingBodyWithBlock:^(id _Nonnull formData){
-        [formData appendPartWithFormData:imageData name:@"image"];
+    [manager POST:param.url parameters:param.paramDic constructingBodyWithBlock:^(id _Nonnull formData){
+        
     } progress:^(NSProgress *_Nonnull uploadProgress) {
         
     }success:^(NSURLSessionDataTask *_Nonnull task,id _Nullable responseObject) {
-        NSLog(@"success");
+        NSDictionary *dic = responseObject;
+        if (dic == NULL || [[dic objectForKey:@"erroCode"] intValue] != 0) {
+            
+            if ([target respondsToSelector:erroSelector]) {
+                [target performSelectorOnMainThread:erroSelector withObject:responseObject waitUntilDone:YES];
+            }
+            
+        }
+        else{
+            if ([target respondsToSelector:okSelector]) {
+                [target performSelectorOnMainThread:okSelector withObject:responseObject waitUntilDone:YES];
+            }
+            
+        }
+        
+        
+        
     }failure:^(NSURLSessionDataTask *_Nonnull task,NSError *_Nonnull error){
         NSLog(@"failure");
+        if ([target respondsToSelector:failSelector]) {
+            [target performSelectorOnMainThread:failSelector withObject:error waitUntilDone:YES];
+        }
+        
     }];
+    
 
     
 }
-- (void)getRequestWithParam:(MARequestParam *)param{
+- (void)getRequestWithParam:(MARequestParam *)param target:(id) target okSelector:(SEL) okSelector failSelector:(SEL) failSelector erroSelector:(SEL) erroSelector{
 
 //    NSURLSession *session = [NSURLSession sharedSession];
 //    NSString *urlStr = [param.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -87,21 +104,35 @@
     NSDictionary *par = param.paramDic;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    UIImage *image = [UIImage imageNamed:@"avatar.png"];
-    NSData *imageData = UIImageJPEGRepresentation(image,1.0);
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    [manager POST:@"http://10.151.195.138:8080/album/rest/photo/post" parameters:par constructingBodyWithBlock:^(id _Nonnull formData){
-        [formData appendPartWithFormData:imageData name:@"image"];
-    } progress:^(NSProgress *_Nonnull uploadProgress) {
+    [manager GET:param.url parameters:par progress:^(NSProgress *_Nonnull downloadProgress) {
         
     }success:^(NSURLSessionDataTask *_Nonnull task,id _Nullable responseObject) {
-        NSLog(@"success");
+
+         NSDictionary *dic = responseObject;
+        if (dic == NULL || [[dic objectForKey:@"erroCode"] intValue] != 0) {
+            
+            if ([target respondsToSelector:erroSelector]) {
+                [target performSelectorOnMainThread:erroSelector withObject:responseObject waitUntilDone:YES];
+            }
+
+        }
+        else{
+            if ([target respondsToSelector:okSelector]) {
+                [target performSelectorOnMainThread:okSelector withObject:responseObject waitUntilDone:YES];
+            }
+
+        }
+       
+        
+        
     }failure:^(NSURLSessionDataTask *_Nonnull task,NSError *_Nonnull error){
         NSLog(@"failure");
+        if ([target respondsToSelector:failSelector]) {
+            [target performSelectorOnMainThread:failSelector withObject:error waitUntilDone:YES];
+        }
+        
     }];
     
-
 
 }
 

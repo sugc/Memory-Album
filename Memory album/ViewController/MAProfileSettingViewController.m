@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "UIView+MAUtils.h"
+#import "MAUserProfile.h"
 #import "MAProfileSettingViewController.h"
 #import "MAProfileSettingViewHelper.h"
-@interface MAProfileSettingViewController ()< UIScrollViewDelegate>
-
+#import "MAContext.h"
+@interface MAProfileSettingViewController ()
 
 @property (nonatomic, assign) CGFloat ratio;
 @property (nonatomic, strong) MAProfileSettingViewHelper *helper;
@@ -19,28 +20,22 @@
 @property (nonatomic, strong) UIImageView *backGroudView;
 @property (nonatomic, strong) UIButton *praiseButton;
 @property (nonatomic, strong) UIButton *setBackGroudButton;
-
-
+@property (nonatomic, strong) UIButton *returnButton;
+@property (nonatomic, strong) UIButton *rightButton;
+@property (nonatomic, assign) BOOL isSelf;
+@property (nonatomic, assign) MAUserProfile *userProfile;
 @end
 
 @implementation MAProfileSettingViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    if ([[UIDevice currentDevice] systemVersion].floatValue >= 7.0) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+   
     
     _ratio = [UIScreen mainScreen].bounds.size.width / 375.0;
     [self.view addSubview:self.tableView];
 }
 
--(void)loadView{
-    [super loadView];
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
-}
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     
@@ -78,21 +73,56 @@
         avatarView.layer.cornerRadius = 30;
         avatarView.layer.masksToBounds = YES;
         [_backGroudView addSubview:avatarView];
+        [_backGroudView addSubview:self.returnButton];
+        [_backGroudView addSubview:self.rightButton];
+        _backGroudView.userInteractionEnabled = YES;
+        
     }
     return _backGroudView;
 }
 
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y <= 70) {
-        scrollView.bounces = NO;
+- (UIButton *)returnButton{
+    if (!_returnButton) {
+        _returnButton = [[UIButton alloc] initWithFrame:CGRectMake(5, 20, 40, 40)];
+        [_returnButton setTitle:@"返回" forState:UIControlStateNormal];
+        [_returnButton addTarget:self action:@selector(clickReturnButton) forControlEvents:UIControlEventTouchUpInside];
     }
-    else{
-        scrollView.bounces = YES;
-    }
-    
-    NSLog(@"%f",scrollView.contentOffset.y);
+    return _returnButton;
 }
+
+- (UIButton *)rightButton{
+    if (!_rightButton) {
+        _rightButton = [[UIButton alloc] initWithFrame:CGRectMake(self.backGroudView.right - 45, self.returnButton.top, 40, 40)];
+    }
+    return _rightButton;
+}
+
+- (void)refreshWithUserProfile:(MAUserProfile *)userProfile{
+    
+    _userProfile = userProfile;
+    if ([userProfile.userName isEqualToString:[[MAContext sharedContext] localUserProfile].userName]) {
+        _isSelf = YES;
+         [self.rightButton setTitle:@"编辑" forState:UIControlStateNormal];
+    }else{
+        _isSelf = NO;
+        [self.rightButton setTitle:@"➕" forState:UIControlStateNormal];
+    }
+}
+- (void)clickReturnButton{
+    [self dismissViewControllerAnimated:NO completion:^(void){}];
+}
+
+- (void)clickRightButton{
+    if (_isSelf) {
+        
+    }else{
+    
+    
+    }
+}
+
+
+
 
 
 

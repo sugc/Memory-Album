@@ -11,7 +11,7 @@
 #import "UIView+MAUtils.h"
 #import "MAAlbumViewControllerHelper.h"
 #import "MAAlbumViewDataManager.h"
-#import "MAPhotoTableViewCell.h"
+#import "MAAlbumEntranceTableViewCell.h"
 
 @interface MAAlbumViewControllerHelper ()
 
@@ -30,21 +30,22 @@
 #pragma mark -- tableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"com.sugc.albumCell"];
+    MAAlbumEntranceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"com.sugc.albumCell"];
     if (!cell) {
-        cell = [[MAPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"com.sugc.albumcell"];
+        cell = [[MAAlbumEntranceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"com.sugc.albumcell"];
         
     }
-    ALAsset *asset = [[_manager.photoArray objectAtIndex:indexPath.row] firstObject];
-    CGImageRef thum = [asset thumbnail];
-    UIImage *image = [UIImage imageWithCGImage:thum];
-    cell.imageView.image = image;
+//    ALAsset *asset = [[_manager.photoArray objectAtIndex:indexPath.row] firstObject];
+//    CGImageRef thum = [asset thumbnail];
+//    UIImage *image = [UIImage imageWithCGImage:thum];
+//    cell.imageView.image = image;
+    [cell refreshWithAlbum:NULL];
     return cell;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _manager.photoArray.count;
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -52,7 +53,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    return 100;
+    return [MAAlbumEntranceTableViewCell cellHeight];
 }
 
 

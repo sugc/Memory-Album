@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MAAlbum;
 @interface MAAlbumEntranceTableViewCell : UITableViewCell
-
+- (void)refreshWithAlbum:(MAAlbum *) album;
++ (CGFloat)cellHeight;
 @end

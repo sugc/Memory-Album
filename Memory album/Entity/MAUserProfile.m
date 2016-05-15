@@ -18,23 +18,37 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dic{
     self = [super init];
     if (self) {
-        self.userName = @"";
-        self.userId = @"";
-        self.signature = @"";
-        self.level = 0;
+        self.userName = [dic objectForKey:@"userName"];
+        self.avatarUrl = [dic objectForKey:@"avatarUrl" ];
+        self.signature = [dic objectForKey:@"signature"];
+        self.level = [[dic objectForKey:@"level"] intValue];
     }
     return self;
 }
 - (NSDictionary *)dictionaryWithProfile{
+    
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:self.userName forKey:@"userName"];
-    [dic setObject:self.userId forKey:@"userId"];
-    [dic setObject:self.signature forKey:@"signature"];
-    [dic setObject:@(self.level) forKey:@"level"];
+    
+    if (self.userName != NULL && ![self.userName isEqual:[NSNull null]]&& ![self.userName isEqualToString:@""]) {
+         [dic setObject:self.userName forKey:@"userName"];
+    }
+    if (self.avatarUrl != NULL&& ![self.avatarUrl isEqual:[NSNull null]]  &&![self.avatarUrl isEqualToString:@""]) {
+        
+             [dic setObject:self.avatarUrl forKey:@"avatarUrl"];
+       
+       
+    }
+    if (self.signature != NULL && ![self.signature isEqual:[NSNull null]]&& ![self.signature isEqualToString:@""]) {
+        [dic setObject:self.signature forKey:@"signature"];
+    }
+//    if (self.level != NULL) {
+//        [dic setObject:@(self.level) forKey:@"level"];
+//    }
+   
+
     
     return dic;
 }
-
 
 
 @end

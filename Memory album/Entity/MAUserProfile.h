@@ -10,7 +10,7 @@
 
 @interface MAUserProfile : NSObject
 
-@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, copy) NSString *avatarUrl;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *signature;
 @property (nonatomic, assign) int level;

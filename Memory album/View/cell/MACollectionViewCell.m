@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "MACollectionViewCell.h"
 #import "MAAlbum.h"
+#import "MAUserProfile.h"
 #import "UIView+MAUtils.h"
+#import "UIImageView+WebCache.h"
 
 #define collectionViewCellHeight 70
 
@@ -36,22 +38,26 @@
     return self;
 }
 
-- (void)refreshWithAlbum:(MAAlbum *) album{
-    self.albumView.image = [UIImage imageNamed:@"avatar.png"];
-    self.nameLabel.text = @"larray";
-    self.sigNatureLabel.text = @"dashkkas";
+- (void)refreshWithUserProfile:(MAUserProfile *) userProfile{
+    
+    [self.albumView setImageWithURL:[NSURL URLWithString:userProfile.avatarUrl] placeholderImage:nil];
+    self.nameLabel.text = userProfile.userName;
+    self.sigNatureLabel.text = userProfile.signature;
 }
 
 - (UIImageView *)albumView{
     if (!_albumView) {
-        _albumView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 50, collectionViewCellHeight - 10)];
+        _albumView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, collectionViewCellHeight - 10, collectionViewCellHeight - 10)];
+        _albumView.layer.cornerRadius = _albumView.width / 2.0;
+        _albumView.layer.masksToBounds = YES;
     }
     return _albumView;
 }
 
 - (UILabel *)nameLabel{
     if (!_nameLabel) {
-        _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.albumView.right + 5, self.albumView.top - 5, [UIScreen mainScreen].bounds.size.width - self.albumView.right - 5, 15)];
+        _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.albumView.right + 15, self.albumView.top - 5, [UIScreen mainScreen].bounds.size.width - self.albumView.right - 5, 30)];
+        _nameLabel.font = [UIFont systemFontOfSize:20];
     }
     return _nameLabel;
 }
@@ -62,7 +68,9 @@
 
 - (UILabel *)sigNatureLabel{
     if (!_sigNatureLabel) {
-        _sigNatureLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.nameLabel.left, self.nameLabel.bottom + 25, self.nameLabel.width, 14)];
+        _sigNatureLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.nameLabel.left, self.nameLabel.bottom + 15, self.nameLabel.width, 14)];
+        [_sigNatureLabel setFont:[UIFont systemFontOfSize:13]];
+        _sigNatureLabel.textColor = [UIColor grayColor];
         
     }
     return _sigNatureLabel;

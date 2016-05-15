@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface MAProfileSettingViewHelper<UITableViewDataSource, UITableViewDelegate> : NSObject
+
+@interface MAProfileSettingViewHelper : NSObject<UITableViewDataSource, UITableViewDelegate> 
 
 @end

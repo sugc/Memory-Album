@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MARegisterView : UIViewController
+@interface MARegisterViewController : UIViewController
 
 @end
 

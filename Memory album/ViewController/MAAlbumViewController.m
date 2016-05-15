@@ -17,20 +17,23 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITableView *albumTableView;
-@property (nonatomic, strong) MAProfileView *profileView;
-@property (nonatomic, strong) id<UITableViewDataSource,UITableViewDelegate> helper;
 
+@property (nonatomic, strong) MAAlbumViewControllerHelper *helper;
+@property (nonatomic, strong) UIImageView *titleView;
 @end
 
 @implementation MAAlbumViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.scrollView];
+    [self.scrollView addSubview:self.titleView];
     [self.scrollView addSubview:self.albumTableView];
     [self.scrollView addSubview:self.profileView];
     self.tabBarItem.title = @"相册";
+    self.tabBarItem.image = [UIImage imageNamed:@"albumIcon@3x.png"];
+
 }
 
 - (void)didReceiveMemoryWarning{
@@ -44,11 +47,11 @@
 }
 - (UITableView *)albumTableView{
     if (!_albumTableView) {
-        _albumTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.8 * [UIScreen mainScreen].bounds.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+        _albumTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.8 * [UIScreen mainScreen].bounds.size.width, self.titleView.bottom, self.scrollView.frame.size.width, self.scrollView.frame.size.height - self.titleView.height)];
         _albumTableView.delegate =  self.helper;
         _albumTableView.dataSource = self.helper;
         
-        _albumTableView.backgroundColor = [UIColor blueColor];
+        _albumTableView.backgroundColor = [UIColor whiteColor];
     }
     return _albumTableView;
 }
@@ -56,7 +59,7 @@
 
 - (UIScrollView *)scrollView{
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64 - 49)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height  - 49)];
         
         _scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width *1.8, 0);
         _scrollView.pagingEnabled = YES;
@@ -78,12 +81,31 @@
 
 - (id<UITableViewDelegate,UITableViewDataSource>)helper{
     if (!_helper) {
-        _helper = (id<UITableViewDataSource,UITableViewDelegate>)[[MAAlbumViewControllerHelper alloc] init];
+        _helper = [[MAAlbumViewControllerHelper alloc] init];
     }
     return _helper;
 }
 
+- (UIImageView *)titleView{
+    if (!_titleView) {
+        _titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0.8 * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, 70)];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, _titleView.width, _titleView.height - 30)];
+        titleLabel.text = @"相册";
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 14 - 20, 35, 30, 30)];
+        [addButton setTitle:@"➕" forState:UIControlStateNormal];
+        [_titleView addSubview:titleLabel];
+        [_titleView addSubview:addButton];
+    
+        _titleView.backgroundColor = [UIColor blueColor];
+        [addButton addTarget:self action:@selector(addAlbum) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _titleView;
+}
 
+- (void)addAlbum{
+
+}
 - (void)dealloc{
     self.albumTableView.delegate = nil;
     self.albumTableView.dataSource = nil;

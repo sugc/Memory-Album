@@ -14,19 +14,15 @@
 @interface MARequestParam : NSObject
 
 @property (nonatomic, strong) NSDictionary *paramDic;
-@property (nonatomic, strong) id target;
 @property (nonatomic, copy) NSString *url;
-@property (nonatomic, assign) SEL okSelector;
-@property (nonatomic, assign) SEL failSelector;
-@property (nonatomic, assign) SEL erroSelector;
+
 
 @end
 @interface MABaseRequestApi : NSObject
 
-- (instancetype)sharedApi;
-- (void)postRequestWithParam:(MARequestParam *)param;
-- (void)getRequestWithParam:(MARequestParam *)param;
-- (void)postImageRequest;
++ (instancetype)sharedApi;
+- (void)postRequestWithParam:(MARequestParam *)param target:(id) target okSelector:(SEL) okSelector failSelector:(SEL) failSelector erroSelector:(SEL) erroSelector;
+- (void)getRequestWithParam:(MARequestParam *)param target:(id) target okSelector:(SEL) okSelector failSelector:(SEL) failSelector erroSelector:(SEL) erroSelector;
 
 @end
 

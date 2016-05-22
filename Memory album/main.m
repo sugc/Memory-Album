@@ -34,7 +34,7 @@ int main(int argc, char * argv[]) {
 //        NSDictionary *par = @{@"photoName":@"longya",@"description":@"buhaokan a ",@"pid":@"112121",
 //                              @"aid":@"dsada"};
 //        UIImage *image = [UIImage imageNamed:@"avatar.png"];
-//        [MAPhotoRequestApi postPhotoWithImage:image andParm:par];
+//        [[[MAPhotoRequestApi alloc] init]postPhotoWithImage:image ];
         [[MAContext sharedContext] initConfiguration];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

@@ -10,11 +10,12 @@
 #import <UIKit/UIKit.h>
 #import "MAPhotoRequestApi.h"
 #import "MABaseRequestApi.h"
-
+#import "MAContext.h"
+#import "MAUserProfile.h"
 @implementation MAPhotoRequestParam
 
 - (void)transferToDic{
-
+    
 
 }
 
@@ -25,15 +26,28 @@
 
 @implementation MAPhotoRequestApi
 
-+ (void)postPhotoWithImage:(UIImage *) image andParm:(NSDictionary *) parm{
+- (void)postPhotoWithImage:(UIImage *) image andAid:(NSString *)aid{
     
     MARequestParam *parma = [[MARequestParam alloc] init];
     parma.url = @"http://10.151.195.138:8080/album/rest/photo/post";
-    NSMutableDictionary *dic = [parm mutableCopy];
+    
     NSData *data = UIImageJPEGRepresentation(image, 1.0);
-//    [dic setObject:data forKey:@"image"];
+    NSString *userName = [[MAContext sharedContext] localUserProfile].userName;
+    NSDictionary *dic = @{@"aid":aid};
      parma.paramDic = dic;
-    [[MABaseRequestApi sharedApi] postRequestWithParam:parma target:self okSelector:NULL failSelector:NULL erroSelector:NULL];
+    parma.formData = data;
+    [[MABaseRequestApi sharedApi] postRequestWithParam:parma target:_target okSelector:@selector(okSelector:) failSelector:@selector(failSelector:) erroSelector:@selector(erroSelectro:)];
+
+}
+
+
+- (void)getImageWithAid:(NSString *)aid{
+    MARequestParam *parma = [[MARequestParam alloc] init];
+    parma.url = @"http://10.151.195.138:8080/album/rest/photo/getPhoto";
+//    NSString *userName = [[MAContext sharedContext] localUserProfile].userName;
+    NSDictionary *dic = @{@"aid":aid};
+    parma.paramDic = dic;
+    [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:_target okSelector:@selector(okSelector:) failSelector:@selector(failSelector:) erroSelector:@selector(erroSelectro:)];
 
 }
 

@@ -54,7 +54,7 @@
     if (!_titleView) {
         _titleView = [[UIImageView alloc] initWithFrame:CGRectMake(0.8 * [UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, 70)];
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, _titleView.width, _titleView.height - 30)];
-        titleLabel.text = @"相册";
+        titleLabel.text = @"好友";
         titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleView.backgroundColor = [UIColor blueColor];
         UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 14 - 20, 35, 30, 30)];

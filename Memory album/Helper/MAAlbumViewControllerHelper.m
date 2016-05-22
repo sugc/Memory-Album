@@ -12,10 +12,14 @@
 #import "MAAlbumViewControllerHelper.h"
 #import "MAAlbumViewDataManager.h"
 #import "MAAlbumEntranceTableViewCell.h"
+#import "MAAlbum.h"
+#import "MAPhotoViewController.h"
+#import "MAContext.h"
 
 @interface MAAlbumViewControllerHelper ()
 
-@property (nonatomic, strong) MAAlbumViewDataManager *manager;
+//@property (nonatomic, strong) MAAlbumViewDataManager *manager;
+@property (nonatomic, strong)NSMutableArray *dataArray;
 @end
 
 @implementation MAAlbumViewControllerHelper
@@ -23,9 +27,19 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        self.manager = [[MAAlbumViewDataManager alloc] init];
+        _dataArray = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void)setData:(NSArray *) dataArray{
+    [_dataArray removeAllObjects];
+    for (int i = 0; i < dataArray.count; i++) {
+        NSDictionary *dic = [dataArray objectAtIndex:i];
+        MAAlbum *album = [[MAAlbum alloc] initWithDictionary:dic];
+        [_dataArray addObject:album];
+    }
+    
 }
 #pragma mark -- tableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -39,13 +53,17 @@
 //    CGImageRef thum = [asset thumbnail];
 //    UIImage *image = [UIImage imageWithCGImage:thum];
 //    cell.imageView.image = image;
-    [cell refreshWithAlbum:NULL];
+    if (indexPath.row <= _dataArray.count) {
+        
+        [cell refreshWithAlbum:[_dataArray objectAtIndex:indexPath.row]];
+    }
+
     return cell;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return _dataArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -60,6 +78,40 @@
 #pragma mark -- tableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
+    MAPhotoViewController *photoVC = [[MAPhotoViewController alloc] init];
+    [[[MAContext sharedContext] tabBarController] presentViewController:photoVC animated:NO completion:^(void){
+        [photoVC refreshWithAlbum:[_dataArray objectAtIndex:indexPath.row]];
+    
+    }];
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+    
+}
+
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+}
+
+
+- (void)okSelector:(id)responseObject{
+    
+    
+}
+
+- (void)erroSelector:(id)responseObject{
+    
+    
+}
+
+- (void)failSelector:(NSError *)erro{
+    
     
 }
 

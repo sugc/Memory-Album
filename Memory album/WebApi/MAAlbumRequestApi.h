@@ -10,6 +10,9 @@
 #import <Foundation/Foundation.h>
 
 @protocol albumRequestProtocol <NSObject>
+- (void)okSelector:(id)responseObject;
+- (void)erroSelector:(id)responseObject;
+- (void)failSelector:(NSError *)erro;
 
 @optional
 
@@ -17,7 +20,10 @@
 @end
 
 @interface MAAlbumRequestApi : NSObject
+
 @property(nonatomic, assign)id<albumRequestProtocol> delegate;
 - (void)getAlbumsWithUserName:(NSString *)userName;
 - (void)deleteAlbumWithAid:(NSString *) aid;
+- (void)createAlbumWithAlbumName:(NSString *) albumName;
+
 @end

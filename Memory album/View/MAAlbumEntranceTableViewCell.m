@@ -12,7 +12,7 @@
 #import "UIView+MAUtils.h"
 #import "UIImageView+WebCache.h"
 
-#define collectionViewCellHeight 140
+#define collectionViewCellHeight 150
 
 @interface MAAlbumEntranceTableViewCell ()
 
@@ -39,17 +39,26 @@
 }
 
 - (void)refreshWithAlbum:(MAAlbum *) album{
-    self.albumView.image = [UIImage imageNamed:@"avatar.png"];
-    [self.albumView setImageWithURL:@"http://10.151.195.138:8080/album/rest/photo/getImage/44"];
+    [self.albumView sd_setImageWithURL:[NSURL URLWithString:album.firstUrl]];
     
     //cut image here
-    self.nameLabel.text = @"larray";
-    self.sigNatureLabel.text = @"dashkkas";
+    self.nameLabel.text = @"";
+    self.sigNatureLabel.text = @"";
+    if (![album.albumName isEqual:[NSNull null]] && album.albumName != NULL) {
+         self.nameLabel.text = album.albumName;
+    }
+    if (![album.descriptions isEqual:[NSNull null]] ) {
+    
+          self.sigNatureLabel.text = album.descriptions;
+    }
+  
 }
 
 - (UIImageView *)albumView{
     if (!_albumView) {
         _albumView = [[UIImageView alloc] initWithFrame:CGRectMake(5, self.nameLabel.bottom, [UIScreen mainScreen].bounds.size.width - 10, 80)];
+        _albumView.contentMode = UIViewContentModeScaleAspectFill;
+        _albumView.layer.masksToBounds = YES;
     }
     return _albumView;
 }
@@ -57,6 +66,7 @@
 - (UILabel *)nameLabel{
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake( 5, 0, [UIScreen mainScreen].bounds.size.width  - 5, 30)];
+        _nameLabel.font = [UIFont systemFontOfSize:20];
     }
     return _nameLabel;
 }
@@ -67,7 +77,9 @@
 
 - (UILabel *)sigNatureLabel{
     if (!_sigNatureLabel) {
-        _sigNatureLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, self.albumView.bottom, [UIScreen mainScreen].bounds.size.width - 5, 30)];
+        _sigNatureLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, self.albumView.bottom, [UIScreen mainScreen].bounds.size.width - 5, 40)];
+        _sigNatureLabel.textColor = [UIColor grayColor];
+        _sigNatureLabel.font = [UIFont systemFontOfSize:13];
         
     }
     return _sigNatureLabel;

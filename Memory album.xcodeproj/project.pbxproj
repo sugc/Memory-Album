@@ -32,6 +32,8 @@
 		2644D1611CE8B61E00DF65CA /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 2644D15E1CE8B61E00DF65CA /* more.png */; };
 		2644D1621CE8B61E00DF65CA /* logout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2644D15F1CE8B61E00DF65CA /* logout.jpg */; };
 		2644D1641CE8CB9800DF65CA /* MAProfileSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2644D1631CE8CB9800DF65CA /* MAProfileSettingViewCell.m */; };
+		2648DD1E1CEB59FF00E71491 /* MAPhotoViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648DD1D1CEB59FF00E71491 /* MAPhotoViewControllerHelper.m */; };
+		2651119F1CEC950B0072588B /* MAPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2651119E1CEC950B0072588B /* MAPhotoView.m */; };
 		269E61CD1CA5792F00FB5420 /* MARegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E61CC1CA5792F00FB5420 /* MARegisterViewController.m */; };
 		26F74C841C9D6DB6003C370B /* MACollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F74C831C9D6DB6003C370B /* MACollectionViewCell.m */; };
 		26F74C871C9D7D4A003C370B /* MACollectionViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F74C861C9D7D4A003C370B /* MACollectionViewControllerHelper.m */; };
@@ -187,6 +189,10 @@
 		2644D15F1CE8B61E00DF65CA /* logout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logout.jpg; sourceTree = "<group>"; };
 		2644D1631CE8CB9800DF65CA /* MAProfileSettingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAProfileSettingViewCell.m; path = View/cell/MAProfileSettingViewCell.m; sourceTree = "<group>"; };
 		2644D1651CE8CBAE00DF65CA /* MAProfileSettingViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MAProfileSettingViewCell.h; path = View/cell/MAProfileSettingViewCell.h; sourceTree = "<group>"; };
+		2648DD1D1CEB59FF00E71491 /* MAPhotoViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAPhotoViewControllerHelper.m; path = Helper/MAPhotoViewControllerHelper.m; sourceTree = "<group>"; };
+		2648DD211CEB5A1C00E71491 /* MAPhotoViewControllerHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAPhotoViewControllerHelper.h; sourceTree = "<group>"; };
+		2651119E1CEC950B0072588B /* MAPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAPhotoView.m; path = View/MAPhotoView.m; sourceTree = "<group>"; };
+		265111A21CEC951B0072588B /* MAPhotoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAPhotoView.h; sourceTree = "<group>"; };
 		269E61CB1CA5791400FB5420 /* MARegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MARegisterViewController.h; sourceTree = "<group>"; };
 		269E61CC1CA5792F00FB5420 /* MARegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MARegisterViewController.m; path = View/MARegisterViewController.m; sourceTree = "<group>"; };
 		26F74C821C9D6DB6003C370B /* MACollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MACollectionViewCell.h; path = View/cell/MACollectionViewCell.h; sourceTree = "<group>"; };
@@ -468,6 +474,8 @@
 				891F29061C7F199700B94446 /* MAProfileView.m */,
 				891F29151C7FF88C00B94446 /* MAUserBasicInfoView.h */,
 				891F29121C7FF84800B94446 /* MAUserBasicInfoView.m */,
+				2651119E1CEC950B0072588B /* MAPhotoView.m */,
+				265111A21CEC951B0072588B /* MAPhotoView.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -483,6 +491,8 @@
 				891F29361C81D73700B94446 /* MAProfileSettingViewHelper.m */,
 				26F74C851C9D7D2C003C370B /* MACollectionViewControllerHelper.h */,
 				26F74C861C9D7D4A003C370B /* MACollectionViewControllerHelper.m */,
+				2648DD211CEB5A1C00E71491 /* MAPhotoViewControllerHelper.h */,
+				2648DD1D1CEB59FF00E71491 /* MAPhotoViewControllerHelper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -976,6 +986,7 @@
 				896023591C86A8D500697252 /* MAPhotoViewController.m in Sources */,
 				896023A81C86DFFC00697252 /* UIScrollView+MJRefresh.m in Sources */,
 				896024201C86E55800697252 /* UIButton+WebCache.m in Sources */,
+				2651119F1CEC950B0072588B /* MAPhotoView.m in Sources */,
 				896023A71C86DFFC00697252 /* UIScrollView+MJExtension.m in Sources */,
 				896023A21C86DFFC00697252 /* MJRefreshGifHeader.m in Sources */,
 				891CCD4D1C7AECCC00A38818 /* MACaptureViewController.m in Sources */,
@@ -1013,6 +1024,7 @@
 				891F292C1C8049EC00B94446 /* MAProfileSettingViewController.m in Sources */,
 				896023971C86DFFC00697252 /* MJRefreshAutoFooter.m in Sources */,
 				896023531C86A38100697252 /* MAPhoto.m in Sources */,
+				2648DD1E1CEB59FF00E71491 /* MAPhotoViewControllerHelper.m in Sources */,
 				896023A11C86DFFC00697252 /* MJRefreshBackStateFooter.m in Sources */,
 				891F292A1C8028AD00B94446 /* MACollectionViewController.m in Sources */,
 				8960239B1C86DFFC00697252 /* MJRefreshHeader.m in Sources */,

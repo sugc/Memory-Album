@@ -30,30 +30,12 @@
 
 - (void)postRequestWithParam:(MARequestParam *)param target:(id) target okSelector:(SEL) okSelector failSelector:(SEL) failSelector erroSelector:(SEL) erroSelector{
 
-//    NSURLSession *session = [NSURLSession sharedSession];
-//    NSString *urlStr = [param.url stringByAddingPercentEscapesUingEncoding:NSUTF8StringEncoding];
-//    NSURL *url = [NSURL URLWithString:urlStr];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    NSData *data = [NSJSONSerialization dataWithJSONObject:param.paramDic options:NSJSONWritingPrettyPrinted error:nil];
-//    UIImage *image = [UIImage imageNamed:@"avatar.png"];
-//    NSData *data = UIImagePNGRepresentation(image);
-//    [request setHTTPMethod:@"POST"];
-//
-//    //[request setValue:@"image.jpg" forKey:@"fileName"];
-//    [request setHTTPBody:data];
-//    
-//    [[session dataTaskWithRequest:request completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *erro){
-//        id respose = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-//        NSLog(@"%@",respose);
-//    }] resume];
+
     
-    
-    
-  
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     [manager POST:param.url parameters:param.paramDic constructingBodyWithBlock:^(id _Nonnull formData){
-        
+        [formData appendPartWithFileData:param.formData name:@"image" fileName:@"image" mimeType:@"image/png"];
     } progress:^(NSProgress *_Nonnull uploadProgress) {
         
     }success:^(NSURLSessionDataTask *_Nonnull task,id _Nullable responseObject) {

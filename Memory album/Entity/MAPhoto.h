@@ -10,11 +10,12 @@
 
 @interface MAPhoto : NSObject
 
-@property (nonatomic, copy) NSString *masterId;
+@property (nonatomic, copy) NSString *aid;
 @property (nonatomic, copy) NSString *photoName;
-@property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString * pid;
 @property (nonatomic, assign) BOOL isUpdate;
 @property (nonatomic, assign) int numberOfPraise;
 @property (nonatomic, strong) NSArray *commentArray;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dic;
 @end

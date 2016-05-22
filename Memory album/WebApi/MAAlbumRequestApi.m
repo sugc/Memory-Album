@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MAAlbumRequestApi.h"
 #import "MABaseRequestApi.h"
+#import "MAContext.h"
+#import "MAUserProfile.h"
 @interface MAAlbumRequestApi ()
 
 @end
@@ -21,7 +23,7 @@
     parma.url = @"http://10.151.195.138:8080/album/rest/album/getAlbum";
     NSMutableDictionary *dic = @{@"userName":userName};
     parma.paramDic = dic;
-    [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:self okSelector:NULL failSelector:NULL erroSelector:NULL];
+    [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:_delegate okSelector:@selector(okSelector:) failSelector:@selector(failSelector:) erroSelector:@selector(erroSelector:)];
 
 
 }
@@ -31,23 +33,19 @@
     parma.url = @"http://10.151.195.138:8080/album/rest/album/deleteAlbum";
     NSMutableDictionary *dic = @{@"aid":aid};
     parma.paramDic = dic;
-    [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:self okSelector:NULL failSelector:NULL erroSelector:NULL];
+    [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:_delegate okSelector:NULL failSelector:NULL erroSelector:NULL];
 
 }
 
-- (void)okSelector{
-    NSLog(@"oks");
-    
+- (void)createAlbumWithAlbumName:(NSString *) albumName {
+    NSString *userName = [[MAContext sharedContext] localUserProfile].userName;
+    MARequestParam *parma = [[MARequestParam alloc] init];
+    parma.url = @"http://10.151.195.138:8080/album/rest/album/createAlbum";
+    NSMutableDictionary *dic = @{@"albumName":albumName,@"userName":userName};
+    parma.paramDic = dic;
+    [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:_delegate okSelector:@selector(okSelector:) failSelector:@selector(failSelector:) erroSelector:@selector(erroSelector:)];
 }
 
-- (void)failSelector{
-    NSLog(@"failds");
- }
-
-- (void)erroSelectror{
-    
-    NSLog(@"errs");
-}
 
 
 @end

@@ -15,6 +15,14 @@
 
 @implementation MAPhoto
 
+- (instancetype)initWithDictionary:(NSDictionary *)dic{
+    self = [super init];
+    if (self) {
+        self.aid = [dic objectForKey:@"aid"];
+        self.pid = [dic objectForKey:@"pid"];
+    }
 
+    return self;
+}
 
 @end

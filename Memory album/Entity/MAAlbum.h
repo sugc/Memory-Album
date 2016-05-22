@@ -10,11 +10,13 @@
 
 @interface MAAlbum : NSObject
 
+@property (nonatomic, copy) NSString *aid;
 @property (nonatomic, copy) NSString *albumName;
-@property (nonatomic, strong) NSMutableArray *photoArray;
 @property (nonatomic, strong) NSMutableArray *tagArray;
 @property (nonatomic, strong) NSDate *createTime;
-@property (nonatomic, assign) BOOL isAllPhotoUpDate;
+@property (nonatomic, copy) NSString *firstUrl;
+@property (nonatomic, copy) NSString *descriptions;
 
-
+- (instancetype)initWithDictionary:(NSDictionary *)dic;
+- (NSDictionary *)dictionaryWithAlbum;
 @end

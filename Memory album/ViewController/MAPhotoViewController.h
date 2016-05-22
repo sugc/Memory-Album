@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MAAlbum;
 @interface MAPhotoViewController : UIViewController
+- (void)refreshWithAlbum:(MAAlbum *)album;
 
 @end

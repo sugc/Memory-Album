@@ -12,12 +12,16 @@
 #import "MAAlbumViewController.h"
 #import "MAProfileView.h"
 #import "MAAlbumViewControllerHelper.h"
+#import "MAAlbumRequestApi.h"
+#import "MJRefresh.h"
+#import "MAContext.h"
+#import "MAUserProfile.h"
 
-@interface MAAlbumViewController ()
+@interface MAAlbumViewController ()<UIAlertViewDelegate,albumRequestProtocol>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITableView *albumTableView;
-
+@property (nonatomic, strong) MAAlbumRequestApi *api;
 @property (nonatomic, strong) MAAlbumViewControllerHelper *helper;
 @property (nonatomic, strong) UIImageView *titleView;
 @end
@@ -52,6 +56,11 @@
         _albumTableView.dataSource = self.helper;
         
         _albumTableView.backgroundColor = [UIColor whiteColor];
+        _albumTableView.header  = [MJRefreshNormalHeader headerWithRefreshingBlock:^(void){
+            MAAlbumRequestApi *refreshApi = [[MAAlbumRequestApi alloc] init];
+            refreshApi.delegate = self;
+            [refreshApi getAlbumsWithUserName:[[MAContext sharedContext] localUserProfile].userName];
+        }];
     }
     return _albumTableView;
 }
@@ -96,6 +105,7 @@
         [addButton setTitle:@"➕" forState:UIControlStateNormal];
         [_titleView addSubview:titleLabel];
         [_titleView addSubview:addButton];
+        _titleView.userInteractionEnabled = YES;
     
         _titleView.backgroundColor = [UIColor blueColor];
         [addButton addTarget:self action:@selector(addAlbum) forControlEvents:UIControlEventTouchUpInside];
@@ -103,11 +113,46 @@
     return _titleView;
 }
 
-- (void)addAlbum{
+- (MAAlbumRequestApi *)api{
+    if (!_api) {
+        _api = [[MAAlbumRequestApi alloc] init];
+        _api.delegate = self;
+    }
+    return _api;
+}
 
+- (void)addAlbum{
+    UIAlertView *alert = [[UIAlertView alloc ] initWithTitle:@"请输入相册名称" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [alert show];
 }
 - (void)dealloc{
     self.albumTableView.delegate = nil;
     self.albumTableView.dataSource = nil;
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        [self.api createAlbumWithAlbumName:[alertView textFieldAtIndex:0].text];
+    }
+
+}
+
+- (void)okSelector:(id)responseObject{
+   NSDictionary *dic = [responseObject objectForKey:@"returnObject"];
+    NSArray *array = [dic objectForKey:@"albumList"];
+    [self.helper setData:array];
+    [self.albumTableView reloadData];
+    [self.albumTableView.header endRefreshing];
+
+}
+- (void)erroSelector:(id)responseObject{
+    
+     [self.albumTableView.header endRefreshing];
+}
+- (void)failSelector:(NSError *)erro{
+
+ [self.albumTableView.header endRefreshing];
+}
 @end
+

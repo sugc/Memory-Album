@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSDictionary *paramDic;
 @property (nonatomic, copy) NSString *url;
+@property (nonatomic, strong) NSData *formData;
 
 
 @end

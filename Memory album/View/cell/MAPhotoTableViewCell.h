@@ -11,6 +11,6 @@
 @interface MAPhotoTableViewCell : UITableViewCell
 
 - (void)refreshWithPhotoArray:(NSArray *)photoArray;
-
++ (CGFloat)cellHeight;
 @end
 

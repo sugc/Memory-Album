@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-@interface MAAlbumViewControllerHelper : NSObject <UITableViewDataSource, UITableViewDelegate>
-
+#import "MAAlbumRequestApi.h"
+@interface MAAlbumViewControllerHelper : NSObject <UITableViewDataSource, UITableViewDelegate,albumRequestProtocol>
+- (void)setData:(NSArray *) dataArray;
 
 @end

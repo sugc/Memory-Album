@@ -24,10 +24,8 @@ static bool isCanBeSelect = NO;
 - (instancetype)initWithFrame:(CGRect)frame{
     self =  [super initWithFrame:frame];
     if (self) {
-//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
-//        tapGesture.numberOfTapsRequired = 1;
-//        tapGesture.numberOfTouchesRequired = 1;
-//        
+       
+       //
 //        UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
 //        longPressGesture.minimumPressDuration = 0.5;
         [self addSubview:self.imageView];
@@ -37,19 +35,25 @@ static bool isCanBeSelect = NO;
 
 - (UIImageView *)imageView{
     if (!_imageView) {
+       
+
         _imageView = [[UIImageView alloc]initWithFrame:self.bounds];
+        _imageView.userInteractionEnabled = YES;
+        UIButton *button = [[UIButton alloc] initWithFrame:_imageView.bounds];
+        [_imageView addSubview:button];
+        [button addTarget:self action:@selector(tapImage) forControlEvents:UIControlEventTouchUpInside];
+
+        
     }
     return _imageView;
 }
 
-- (void)tapImage:(UITapGestureRecognizer *)tapGesture{
-    if (isCanBeSelect) {
-        
-    }else{
-        
+- (void)tapImage{
     
+    
+    if ([_delegate respondsToSelector:@selector(clickImage:)]) {
+        [_delegate clickImage:self.photo.pid];
     }
-
 }
 
 - (void)refreshWithPhoto:(MAPhoto *)photo{

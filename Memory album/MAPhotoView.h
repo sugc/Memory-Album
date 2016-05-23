@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MAPhotoTableViewCell.h"
 @class MAPhoto;
 
 @interface MAPhotoView : UIView
 
+@property (nonatomic, assign)id<MAPhotoReferViewProtocol> delegate;
 - (void)refreshWithPhoto:(MAPhoto *)photo;
 + (void)setSelectState:(BOOL)flag;
 

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MAPhotoPickViewController : UIViewController
+
+@interface MAPhotoReferViewController : UIViewController
 
 
-
+- (void)refreshWithIndex:(NSInteger)index;
+- (void)setData:(NSArray *)dataArray;
 @end

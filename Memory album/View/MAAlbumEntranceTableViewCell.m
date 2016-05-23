@@ -39,7 +39,11 @@
 }
 
 - (void)refreshWithAlbum:(MAAlbum *) album{
-    [self.albumView sd_setImageWithURL:[NSURL URLWithString:album.firstUrl]];
+    
+    if (album != NULL && album.firstUrl != NULL && ![album.firstUrl isEqual:[NSNull null]]) {
+        [self.albumView sd_setImageWithURL:[NSURL URLWithString:album.firstUrl]];
+
+    }
     
     //cut image here
     self.nameLabel.text = @"";

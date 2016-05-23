@@ -122,8 +122,13 @@
 }
 
 - (void)addAlbum{
-    UIAlertView *alert = [[UIAlertView alloc ] initWithTitle:@"请输入相册名称" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    UIAlertView *alert = [[UIAlertView alloc ] initWithTitle:@"创建相册" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+    UITextField *nameFiled = [alert textFieldAtIndex:0];
+    nameFiled.placeholder = @"输入相册名";
+    UITextField *desFiled = [alert textFieldAtIndex:1];
+    desFiled.secureTextEntry = NO;
+    desFiled.placeholder = @"添加描述";
     [alert show];
 }
 - (void)dealloc{

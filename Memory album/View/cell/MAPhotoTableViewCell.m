@@ -48,12 +48,19 @@
         [self.contentView addSubview:_imageView1];
         [self.contentView addSubview:_imageView2];
         [self.contentView addSubview:_imageView3];
+
     }
     
     return self;
 }
 
+- (void)setDelegate:(id<MAPhotoReferViewProtocol>)delegate{
+    _imageView0.delegate = delegate;
+      _imageView1.delegate = delegate;
+      _imageView2.delegate = delegate;
+      _imageView3.delegate = delegate;
 
+}
 
 
 - (void)refreshWithPhotoArray:(NSArray *)photoArray{

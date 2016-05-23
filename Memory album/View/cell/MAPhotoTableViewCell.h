@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MAPhotoReferViewProtocol <NSObject>
+
+- (void)clickImage:(NSString *)pid;
+
+@end
+
+
 @interface MAPhotoTableViewCell : UITableViewCell
 
 - (void)refreshWithPhotoArray:(NSArray *)photoArray;
 + (CGFloat)cellHeight;
+- (void)setDelegate:(id<MAPhotoReferViewProtocol>)delegate;
 @end
 

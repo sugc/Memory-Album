@@ -13,7 +13,7 @@
 		2603B2D31CC86798006CAF83 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2603B2CB1CC86798006CAF83 /* AFURLRequestSerialization.m */; };
 		2603B2D41CC86798006CAF83 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2603B2CD1CC86798006CAF83 /* AFURLResponseSerialization.m */; };
 		2603B2D51CC86798006CAF83 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2603B2CF1CC86798006CAF83 /* AFURLSessionManager.m */; };
-		263E2DFC1CB7E38500A354E2 /* MAPhotoPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263E2DFB1CB7E38500A354E2 /* MAPhotoPickViewController.m */; };
+		263E2DFC1CB7E38500A354E2 /* MAPhotoReferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 263E2DFB1CB7E38500A354E2 /* MAPhotoReferViewController.m */; };
 		263FBC001CDB6ED900E76E33 /* MAPhotoRequestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 263FBBFF1CDB6ED900E76E33 /* MAPhotoRequestApi.m */; };
 		26411D931CE3261700A183EB /* MAUserRequestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 26411D921CE3261700A183EB /* MAUserRequestApi.m */; };
 		2642AAAF1CE5B75700871BB9 /* MAAlbumRequestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2642AAAE1CE5B75700871BB9 /* MAAlbumRequestApi.m */; };
@@ -165,8 +165,8 @@
 		2603B2CD1CC86798006CAF83 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		2603B2CE1CC86798006CAF83 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		2603B2CF1CC86798006CAF83 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
-		263E2DFB1CB7E38500A354E2 /* MAPhotoPickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAPhotoPickViewController.m; path = ViewController/MAPhotoPickViewController.m; sourceTree = "<group>"; };
-		263E2DFD1CB7E3AA00A354E2 /* MAPhotoPickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAPhotoPickViewController.h; sourceTree = "<group>"; };
+		263E2DFB1CB7E38500A354E2 /* MAPhotoReferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAPhotoReferViewController.m; path = ViewController/MAPhotoReferViewController.m; sourceTree = "<group>"; };
+		263E2DFD1CB7E3AA00A354E2 /* MAPhotoReferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAPhotoReferViewController.h; sourceTree = "<group>"; };
 		263FBBFC1CDB6E9400E76E33 /* MAPhotoRequestApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAPhotoRequestApi.h; sourceTree = "<group>"; };
 		263FBBFF1CDB6ED900E76E33 /* MAPhotoRequestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAPhotoRequestApi.m; path = WebApi/MAPhotoRequestApi.m; sourceTree = "<group>"; };
 		26411D921CE3261700A183EB /* MAUserRequestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAUserRequestApi.m; path = WebApi/MAUserRequestApi.m; sourceTree = "<group>"; };
@@ -458,8 +458,8 @@
 				891F292B1C8049EC00B94446 /* MAProfileSettingViewController.m */,
 				896023681C86CB8600697252 /* MAPhotoViewController.h */,
 				896023581C86A8D500697252 /* MAPhotoViewController.m */,
-				263E2DFD1CB7E3AA00A354E2 /* MAPhotoPickViewController.h */,
-				263E2DFB1CB7E38500A354E2 /* MAPhotoPickViewController.m */,
+				263E2DFD1CB7E3AA00A354E2 /* MAPhotoReferViewController.h */,
+				263E2DFB1CB7E38500A354E2 /* MAPhotoReferViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -1038,7 +1038,7 @@
 				263FBC001CDB6ED900E76E33 /* MAPhotoRequestApi.m in Sources */,
 				2603B2D11CC86798006CAF83 /* AFNetworkReachabilityManager.m in Sources */,
 				8960241D1C86E55800697252 /* SDWebImageDownloaderOperation.m in Sources */,
-				263E2DFC1CB7E38500A354E2 /* MAPhotoPickViewController.m in Sources */,
+				263E2DFC1CB7E38500A354E2 /* MAPhotoReferViewController.m in Sources */,
 				896024171C86E55800697252 /* MKAnnotationView+WebCache.m in Sources */,
 				8960233F1C854E1800697252 /* MADataManager.m in Sources */,
 				896023981C86DFFC00697252 /* MJRefreshBackFooter.m in Sources */,

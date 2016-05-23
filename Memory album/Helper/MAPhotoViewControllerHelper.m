@@ -10,6 +10,8 @@
 #import "MAPhotoViewControllerHelper.h"
 #import "MAPhotoTableViewCell.h"
 #import "MAPhoto.h"
+#import "MAPhotoReferViewController.h"
+
 @interface MAPhotoViewControllerHelper ()
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @end
@@ -24,6 +26,9 @@
     return self;
 }
 
+- (NSArray *)getData{
+    return _dataArray;
+}
 - (void)setData:(NSArray *) dataArray{
     [_dataArray removeAllObjects];
     for (int i = 0; i < dataArray.count; i++) {
@@ -47,7 +52,8 @@
     MAPhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"com.sugc.photoViewCell"];
     if (!cell) {
         cell = [[MAPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"com.sugc.photoViewCell"];
-        
+
+        [cell setDelegate:self.delegate];
     }
     //    ALAsset *asset = [[_manager.photoArray objectAtIndex:indexPath.row] firstObject];
     //    CGImageRef thum = [asset thumbnail];
@@ -82,6 +88,7 @@
 #pragma mark -- tableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     
    }
 

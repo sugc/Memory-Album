@@ -96,9 +96,32 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self deleteAlbumAtIndex:indexPath.row];
+    }
+    
     
 }
 
+- (void)deleteAlbumAtIndex:(NSInteger)index{
+
+}
+- (nullable NSArray<UITableViewRowAction*>*)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+    
+    }];
+    
+    
+    
+    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        
+    }];
+
+    return @[deleteAction,editAction];
+
+}
 
 - (void)okSelector:(id)responseObject{
     

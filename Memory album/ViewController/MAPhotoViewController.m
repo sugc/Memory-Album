@@ -13,7 +13,8 @@
 #import "MAPhotoRequestApi.h"
 #import "MAPhotoViewControllerHelper.h"
 #import "MJRefresh.h"
-
+#import "MAPhotoReferViewController.h"
+#import "MAPhoto.h"
 @interface MAPhotoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UIButton *addPhotoButton;
 @property (nonatomic, strong) UIButton *backButton;
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) MAPhotoViewControllerHelper *helper;
 @property (nonatomic, strong) MAAlbum *album;
 @property (nonatomic, strong) MAPhotoRequestApi *api;
+@property (nonatomic, strong) MAPhotoReferViewController *MAPRVC;
 
 @end
 
@@ -101,6 +103,7 @@
 - (MAPhotoViewControllerHelper *)helper{
     if (!_helper) {
         _helper = [[MAPhotoViewControllerHelper alloc] init];
+        _helper.delegate = self;
     }
     return _helper;
 }
@@ -163,7 +166,27 @@
     [picker dismissViewControllerAnimated:NO completion:^(void){}];
 }
 
+- (MAPhotoReferViewController *)MAPRVC{
+    if (!_MAPRVC) {
+        _MAPRVC = [[MAPhotoReferViewController alloc] init];
+    }
+    return _MAPRVC;
+}
 
+- (void)clickImage:(NSNumber *)pid{
+    for (int i = 0; i < [self.helper getData].count; i ++) {
+        MAPhoto *photo = [[self.helper getData] objectAtIndex:i];
+
+        if ([pid isEqualToNumber:photo.pid]) {
+            [self presentViewController:self.MAPRVC animated:NO completion:^(void){
+                [self.MAPRVC setData:[self.helper getData]];
+                [self.MAPRVC refreshWithIndex:i];
+            
+            }];
+            break;
+        }
+    }
+}
 
 - (void)okSelector:(id)responseObject{
     NSDictionary *dic = [responseObject objectForKey:@"returnObject"];

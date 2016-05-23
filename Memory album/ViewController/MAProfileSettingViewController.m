@@ -93,6 +93,9 @@
 - (UIButton *)rightButton{
     if (!_rightButton) {
         _rightButton = [[UIButton alloc] initWithFrame:CGRectMake(self.backGroudView.right - 45, self.returnButton.top, 40, 40)];
+        [_rightButton setTitle:@"修改" forState:UIControlStateNormal];
+        [_rightButton addTarget:self action:@selector(changeUserInfo) forControlEvents:UIControlEventTouchUpInside];
+
     }
     return _rightButton;
 }

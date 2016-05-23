@@ -12,4 +12,5 @@
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UITextView *textView;
++ (CGFloat)cellHeiht;
 @end

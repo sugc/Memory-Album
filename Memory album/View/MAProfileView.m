@@ -139,4 +139,41 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+            [self chagePwd];
+            break;
+        case 1:
+            [self logOut];
+            break;
+        case 2:
+
+            break;
+
+}
+}
+- (void)logOut{
+    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *filePath = [documentPath stringByAppendingPathComponent:@"MALocalUserProfile"];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]) {
+        [manager removeItemAtPath:filePath error:NULL];
+    }
+    
+    [[MAContext sharedContext] refreshLocalUserWithUserProfile:NULL];
+    
+}
+
+- (void)chagePwd{
+    UIAlertView *alert = [[UIAlertView alloc ] initWithTitle:@"修改密码" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+    UITextField *nameFiled = [alert textFieldAtIndex:0];
+    nameFiled.placeholder = @"输入原密码";
+    UITextField *desFiled = [alert textFieldAtIndex:1];
+    desFiled.secureTextEntry = NO;
+    desFiled.placeholder = @"请输入新密码";
+    [alert show];
+}
 @end

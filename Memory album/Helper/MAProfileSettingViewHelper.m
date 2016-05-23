@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MAProfileSettingViewHelper.h"
-
+#import "MAProfileSettingViewCell.h"
 @interface MAProfileSettingViewHelper ()
 
 @end
@@ -16,22 +16,22 @@
 @implementation MAProfileSettingViewHelper
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = nil;
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"profile"];
+    MAProfileSettingViewCell *cell = [[MAProfileSettingViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"profile"];
     switch (indexPath.row) {
         case 0:
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"profile"];
-            cell.detailTextLabel.text = @"dsadsadasdasd";
             
             break;
         case 1:
-            
+            cell.textLabel.text = @"性别";
+            cell.textView.text = @"男";
             break;
         case 2:
-            
+            cell.textLabel.text = @"QQ";
+            cell.textView.text = @"2528397406";
             break;
         case 3:
-            
+            cell.textLabel.text = @"地址";
+            cell.textView.text = @"吉林省长春市";
             break;
         
         default:
@@ -41,7 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return 4;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

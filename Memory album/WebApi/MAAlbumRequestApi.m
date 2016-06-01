@@ -20,17 +20,29 @@
 
 - (void)getAlbumsWithUserName:(NSString *)userName{
     MARequestParam *parma = [[MARequestParam alloc] init];
-    parma.url = @"http://10.151.195.138:8080/album/rest/album/getAlbum";
+    parma.url = @"http://10.151.135.230:8080/album/rest/album/getAlbum";
     NSMutableDictionary *dic = @{@"userName":userName};
     parma.paramDic = dic;
     [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:_delegate okSelector:@selector(okSelector:) failSelector:@selector(failSelector:) erroSelector:@selector(erroSelector:)];
 
 
 }
+- (void)getAlbumsWithUserName:(NSString *)userName andKeyword:(NSString *)keyword{
+    MARequestParam *parma = [[MARequestParam alloc] init];
+    parma.url = @"http://10.151.135.230:8080/album/rest/album/getAlbumWithKeyword";
+    if (keyword == NULL) {
+        keyword = @"";
+    }
+    NSMutableDictionary *dic = @{@"keyword":keyword,@"userName":userName};
+    parma.paramDic = dic;
+    [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:_delegate okSelector:@selector(okSelector:) failSelector:@selector(failSelector:) erroSelector:@selector(erroSelector:)];
+    
+}
+
 - (void)deleteAlbumWithAid:(NSString *) aid{
 
     MARequestParam *parma = [[MARequestParam alloc] init];
-    parma.url = @"http://10.151.195.138:8080/album/rest/album/deleteAlbum";
+    parma.url = @"http://10.151.135.230:8080/album/rest/album/deleteAlbum";
     NSMutableDictionary *dic = @{@"aid":aid};
     parma.paramDic = dic;
     [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:_delegate okSelector:NULL failSelector:NULL erroSelector:NULL];
@@ -40,7 +52,7 @@
 - (void)createAlbumWithAlbumName:(NSString *) albumName {
     NSString *userName = [[MAContext sharedContext] localUserProfile].userName;
     MARequestParam *parma = [[MARequestParam alloc] init];
-    parma.url = @"http://10.151.195.138:8080/album/rest/album/createAlbum";
+    parma.url = @"http://10.151.135.230:8080/album/rest/album/createAlbum";
     NSMutableDictionary *dic = @{@"albumName":albumName,@"userName":userName};
     parma.paramDic = dic;
     [[MABaseRequestApi sharedApi] getRequestWithParam:parma target:_delegate okSelector:@selector(okSelector:) failSelector:@selector(failSelector:) erroSelector:@selector(erroSelector:)];

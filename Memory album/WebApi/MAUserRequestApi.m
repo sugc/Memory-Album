@@ -23,7 +23,7 @@
 
 -(void)loginWithUserName:(NSString *)userName andPwd:(NSString *)pwd {
     MARequestParam *parm = [[MARequestParam alloc] init];
-    parm.url =  @"http://10.151.195.138:8080/album/rest/user/login";
+    parm.url =  @"http://10.151.135.230:8080/album/rest/user/login";
 //    NSDictionary *dic = @{@"userName":userName,@"pwd":pwd};
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:userName forKey:@"userName"];
@@ -36,7 +36,7 @@
 - (void)isUserNameCanBeUsed:(NSString *)userName{
 
     MARequestParam *param = [[MARequestParam alloc] init];
-    param.url =  @"http://10.151.195.138:8080/album/rest/photo/post";
+    param.url =  @"http://10.151.135.230:8080/album/rest/photo/post";
     NSDictionary *dic = @{@"userName":userName};
     param.paramDic = dic;
     [[MABaseRequestApi sharedApi] getRequestWithParam:param target:self okSelector:@selector(registerOkSelector) failSelector:@selector(registerFailSelector) erroSelector:@selector(registerErroSelectror)];
@@ -94,7 +94,7 @@
 
 - (void)registerWithUserName:(NSString *)userName andPwd:(NSString *)pwd{
     MARequestParam *param = [[MARequestParam alloc] init];
-    param.url =  @"http://10.151.195.138:8080/album/rest/user/register";
+    param.url =  @"http://10.151.135.230:8080/album/rest/user/register";
     NSDictionary *dic = @{@"userName":userName,@"pwd":pwd};
     param.paramDic = dic;
     [[MABaseRequestApi sharedApi] postRequestWithParam:param target:self okSelector:@selector(registerOkSelector:) failSelector:@selector(registerFailSelector:) erroSelector:@selector(registerErroSelectror:)];
@@ -104,7 +104,7 @@
 
 - (void)getFriendsWithUserName:(NSString *)userName{
     MARequestParam *param = [[MARequestParam alloc] init];
-    param.url =  @"http://10.151.195.138:8080/album/rest/user/getFriends";
+    param.url =  @"http://10.151.135.230:8080/album/rest/user/getFriends";
     NSDictionary *dic = @{@"userName":userName};
     param.paramDic = dic;
     [[MABaseRequestApi sharedApi] getRequestWithParam:param target:self.delegate okSelector:@selector(okSelector:) failSelector:@selector(failSelector:) erroSelector:@selector(erroSelectror:)];

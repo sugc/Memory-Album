@@ -25,5 +25,5 @@
 - (void)getAlbumsWithUserName:(NSString *)userName;
 - (void)deleteAlbumWithAid:(NSString *) aid;
 - (void)createAlbumWithAlbumName:(NSString *) albumName;
-
+- (void)getAlbumsWithUserName:(NSString *)userName andKeyword:(NSString *)keyword;
 @end

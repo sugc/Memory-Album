@@ -29,7 +29,7 @@
 - (void)postPhotoWithImage:(UIImage *) image andAid:(NSString *)aid{
     
     MARequestParam *parma = [[MARequestParam alloc] init];
-    parma.url = @"http://10.151.195.138:8080/album/rest/photo/post";
+    parma.url = @"http://10.151.135.230:8080/album/rest/photo/post";
     
     NSData *data = UIImageJPEGRepresentation(image, 1.0);
     NSString *userName = [[MAContext sharedContext] localUserProfile].userName;
@@ -43,7 +43,7 @@
 
 - (void)getImageWithAid:(NSString *)aid{
     MARequestParam *parma = [[MARequestParam alloc] init];
-    parma.url = @"http://10.151.195.138:8080/album/rest/photo/getPhoto";
+    parma.url = @"http://10.151.135.230:8080/album/rest/photo/getPhoto";
 //    NSString *userName = [[MAContext sharedContext] localUserProfile].userName;
     NSDictionary *dic = @{@"aid":aid};
     parma.paramDic = dic;

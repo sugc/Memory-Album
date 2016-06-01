@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MABrowseViewHelper <UITableViewDataSource, UITableViewDelegate> : NSObject
-
+#import "MAAlbumRequestApi.h"
+@interface MABrowseViewHelper: NSObject <UITableViewDataSource, UITableViewDelegate,albumRequestProtocol> 
+- (void)setData:(NSArray *) dataArray;
 @end

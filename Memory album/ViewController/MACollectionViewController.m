@@ -76,9 +76,17 @@
 
         _albumTableView.backgroundColor = [UIColor grayColor];
         _albumTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(void){
-            MAUserRequestApi *userApi = [[MAUserRequestApi alloc] init];
-            userApi.delegate = self;
-            [userApi getFriendsWithUserName:[[MAContext sharedContext] localUserProfile].userName ];
+            if ([[MAContext sharedContext] localUserProfile].userName!= NULL) {
+                MAUserRequestApi *userApi = [[MAUserRequestApi alloc] init];
+                userApi.delegate = self;
+                [userApi getFriendsWithUserName:[[MAContext sharedContext] localUserProfile].userName ];
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请先登录" message:NULL delegate:nil cancelButtonTitle:@"取消" otherButtonTitles: @"确定",nil];
+                [alert show];
+                
+            }
+
+          
         }];
        
     }

@@ -124,7 +124,11 @@
     }
 }
 
+- (void)changeUserInfo{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认修改" message:NULL delegate:nil cancelButtonTitle:@"取消" otherButtonTitles: @"确定",nil];
+    [alert show];
 
+}
 
 
 

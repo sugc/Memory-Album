@@ -108,7 +108,7 @@
         _titleView.userInteractionEnabled = YES;
         
         _titleView.backgroundColor = [UIColor blueColor];
-        [addButton addTarget:self action:@selector(addAlbum) forControlEvents:UIControlEventTouchUpInside];
+        [addButton addTarget:self action:@selector(searchAlbum) forControlEvents:UIControlEventTouchUpInside];
     }
     return _titleView;
 }
@@ -121,14 +121,11 @@
     return _api;
 }
 
-- (void)addAlbum{
-    UIAlertView *alert = [[UIAlertView alloc ] initWithTitle:@"创建相册" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alert setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+- (void)searchAlbum{
+    UIAlertView *alert = [[UIAlertView alloc ] initWithTitle:@"搜索相册" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     UITextField *nameFiled = [alert textFieldAtIndex:0];
-    nameFiled.placeholder = @"输入相册名";
-    UITextField *desFiled = [alert textFieldAtIndex:1];
-    desFiled.secureTextEntry = NO;
-    desFiled.placeholder = @"添加描述";
+    nameFiled.placeholder = @"输入关键字";
     [alert show];
 }
 - (void)dealloc{

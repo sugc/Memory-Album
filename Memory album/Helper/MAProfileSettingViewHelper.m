@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MAProfileSettingViewHelper.h"
 #import "MAProfileSettingViewCell.h"
+#import "MAUserProfile.h"
 @interface MAProfileSettingViewHelper ()
 
 @end
@@ -24,6 +25,7 @@
         case 1:
             cell.textLabel.text = @"性别";
             cell.textView.text = @"男";
+            cell.textView.editable = YES;
             break;
         case 2:
             cell.textLabel.text = @"QQ";
@@ -33,7 +35,8 @@
             cell.textLabel.text = @"地址";
             cell.textView.text = @"吉林省长春市";
             break;
-        
+        case 4:
+            cell.textLabel.text = @"查看个人相册";
         default:
             break;
     }
@@ -41,7 +44,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 5;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -50,5 +53,28 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 40;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+            
+            break;
+        case 1:
+           
+            break;
+        case 2:
+           
+            break;
+        case 3:
+           
+            break;
+        case 4:
+            
+        default:
+            break;
+    }
+
+
 }
 @end
